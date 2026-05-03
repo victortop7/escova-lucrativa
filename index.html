@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escova Lucrativa — Luciana Monteiro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #08080f;
+      --purple: #7c3aed;
+      --purple-mid: #5b21b6;
+      --purple-dark: #2d1b69;
+      --purple-deep: #1a0a3c;
+      --purple-light: #a855f7;
+      --purple-pale: #c084fc;
+      --purple-lavender: #ddd6fe;
+      --purple-card: #3b0764;
+      --green: #22c55e;
+      --green-hover: #16a34a;
+      --white: #ffffff;
+      --gray: #9ca3af;
+      --gray-dark: #374151;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── UTILITIES ── */
+    .btn-cta {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(34,197,94,.35);
+      font-family: inherit;
+    }
+    .btn-cta:hover { background: var(--green-hover); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(34,197,94,.45); }
+    .btn-cta:active { transform: translateY(0); }
+
+    .section-inner  { max-width: 900px; margin: 0 auto; }
+    .section-wide   { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    /* placeholder for images the user needs to swap */
+    .img-ph {
+      background: #1a1030;
+      border: 1px dashed #4c1d95;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 12px;
+      color: #7c60b0;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: radial-gradient(ellipse 80% 70% at 65% 45%, #4c1d95 0%, #1e0a3c 45%, #08080f 100%);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-photo { position: relative; }
+    .hero-photo img,
+    .hero-photo .img-ph { width: 100%; height: 620px; object-fit: cover; object-position: top; border-radius: 0; }
+
+    .hero-content { display: flex; flex-direction: column; gap: 28px; }
+
+    .countdown { display: flex; gap: 10px; }
+    .cd-box {
+      background: rgba(124,58,237,.45);
+      border: 1px solid rgba(168,85,247,.4);
+      border-radius: 10px;
+      padding: 10px 16px;
+      text-align: center;
+      min-width: 68px;
+    }
+    .cd-num  { display: block; font-size: 30px; font-weight: 900; line-height: 1; }
+    .cd-lbl  { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--purple-pale); margin-top: 4px; }
+
+    .hero-logo { line-height: 1; }
+    .hero-logo .row1 { font-size: 70px; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; color: #fff; display: flex; align-items: center; gap: 12px; }
+    .hero-logo .row2 { font-size: 70px; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; color: var(--purple-pale); }
+    .hero-logo .dryer-icon { font-size: 56px; }
+
+    .hero-tagline { font-size: 14px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: #e5e7eb; line-height: 1.65; max-width: 440px; }
+
+    .hero-video { border-radius: 16px; overflow: hidden; background: #000; }
+    .hero-video iframe { width: 100%; height: 230px; display: block; border: none; }
+
+    /* ── MARQUEE ── */
+    #marquee { background: var(--purple); padding: 13px 0; overflow: hidden; }
+    .mq-track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: mq-scroll 22s linear infinite;
+    }
+    .mq-item { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 0 28px; white-space: nowrap; }
+    .mq-item::before { content: '✦'; margin-right: 28px; opacity: .6; }
+    @keyframes mq-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ── PAIN POINTS ── */
+    #pain {
+      background: linear-gradient(180deg, var(--purple-deep) 0%, #3b1282 50%, var(--purple-deep) 100%);
+      padding: 80px 40px;
+    }
+    .pain-title { font-size: 34px; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 44px; letter-spacing: .5px; }
+    .pain-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 44px; max-width: 860px; margin-left: auto; margin-right: auto; }
+    .pain-card  { background: #fff; color: #111; border-radius: 14px; padding: 26px 30px; font-size: 16px; line-height: 1.65; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .pain-card strong { font-weight: 800; }
+
+    .pain-cta-block { text-align: center; padding: 36px 32px; background: rgba(255,255,255,.06); border-radius: 20px; max-width: 760px; margin: 0 auto; }
+    .pain-cta-block h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+    .pain-cta-block p  { font-size: 15px; color: #d1d5db; margin-bottom: 28px; line-height: 1.6; }
+    .pain-cta-block p strong { color: #fff; }
+
+    /* ── O QUE VAI APRENDER ── */
+    #aprender {
+      background: linear-gradient(180deg, #0a0014 0%, var(--purple-deep) 25%, #3b1282 55%, var(--purple-deep) 80%, #08080f 100%);
+      padding: 80px 40px;
+    }
+    .grad-title {
+      font-size: 40px; font-weight: 900; text-align: center; margin-bottom: 52px;
+      background: linear-gradient(90deg, #a855f7, #7c3aed);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 52px; }
+    .content-card { background: #fff; color: #111; border-radius: 18px; overflow: hidden; }
+    .content-card img,
+    .content-card .img-ph { width: 100%; height: 230px; object-fit: cover; }
+    .content-card .img-ph { border-radius: 0; border: none; background: #e9d5ff; color: #7c3aed; }
+    .content-card-body { padding: 20px 24px 26px; text-align: center; }
+    .content-card-body h3 { font-size: 15px; font-weight: 800; text-transform: uppercase; line-height: 1.4; }
+
+    /* ── DESBLOQUEAR (slider) ── */
+    #desbloquear { background: #08080f; padding: 80px 0; }
+    .desbloquear-title {
+      text-align: center; font-size: 34px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px;
+      padding: 0 40px; margin-bottom: 60px;
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .desbloquear-grid { max-width: 1280px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 42% 58%; gap: 56px; align-items: center; }
+    .desbloquear-photo img,
+    .desbloquear-photo .img-ph { width: 100%; height: 560px; object-fit: cover; object-position: top; border-radius: 0; border: none; }
+    .desbloquear-photo .img-ph { background: linear-gradient(160deg,#2d1b69,#08080f); }
+
+    .slider-wrap { position: relative; overflow: hidden; }
+    .slider-track { display: flex; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+    .slider-slide { min-width: 100%; }
+    .module-card {
+      background: var(--purple);
+      border: 2px solid rgba(168,85,247,.7);
+      border-radius: 20px;
+      padding: 36px 32px;
+      position: relative;
+      box-shadow: 0 0 40px rgba(168,85,247,.3), inset 0 0 40px rgba(0,0,0,.25);
+    }
+    .module-neon {
+      position: absolute; inset: 10px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 13px;
+      pointer-events: none;
+      box-shadow: 0 0 10px rgba(255,255,255,.25);
+    }
+    .module-card h3 { font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 20px; }
+    .module-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .module-card ul li { font-size: 15px; line-height: 1.55; padding-left: 18px; position: relative; }
+    .module-card ul li::before { content: '•'; position: absolute; left: 0; color: var(--purple-pale); font-weight: 900; }
+
+    .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+    .s-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.25); border: none; cursor: pointer; transition: background .2s; padding: 0; }
+    .s-dot.on { background: #fff; }
+
+    /* ── BENEFÍCIOS (white bg) ── */
+    #beneficios { background: #fff; padding: 80px 40px; color: #111; }
+    .beneficios-title { font-size: 34px; font-weight: 800; text-align: center; margin-bottom: 48px; color: var(--purple); line-height: 1.35; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .beneficios-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
+    .benef-box {
+      background: #c084fc;
+      border: 2px dashed #9333ea;
+      border-radius: 16px;
+      padding: 18px 16px;
+      font-size: 13px; font-weight: 600; line-height: 1.55; color: #fff;
+    }
+
+    /* ── INSTRUTORA ── */
+    #instrutora { background: #08080f; padding: 80px 40px; }
+    .instrutora-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .instrutora-photo {
+      border: 3px solid var(--purple);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(124,58,237,.35);
+    }
+    .instrutora-photo img,
+    .instrutora-photo .img-ph { width: 100%; height: 530px; object-fit: cover; border: none; border-radius: 0; background: linear-gradient(180deg,#e5e7eb,#c4b5fd); color: #7c3aed; }
+
+    .instrutora-content { display: flex; flex-direction: column; gap: 22px; }
+    .instrutora-name { font-size: 42px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; line-height: 1.1; }
+    .instrutora-bio { font-size: 16px; line-height: 1.8; color: #d1d5db; }
+    .instrutora-objetivo h3 { font-size: 30px; font-weight: 900; text-transform: uppercase; margin-bottom: 14px; }
+
+    /* ── AULAS PRÁTICAS ── */
+    #aulas {
+      background: linear-gradient(180deg, #08080f 0%, var(--purple-deep) 40%, #08080f 100%);
+      padding: 80px 40px;
+    }
+
+    /* ── SUPER BÔNUS ── */
+    #bonus { background: #08080f; padding: 80px 40px; }
+    .bonus-heading {
+      font-size: 54px; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; text-align: center;
+      background: linear-gradient(90deg, #5b21b6, #a855f7); margin-bottom: 12px;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .bonus-sub { text-align: center; font-size: 18px; font-weight: 700; margin-bottom: 48px; line-height: 1.5; }
+    .bonus-container { max-width: 960px; margin: 0 auto; background: var(--purple-mid); border-radius: 32px 32px 20px 20px; overflow: hidden; }
+    .bonus-images { display: grid; grid-template-columns: 1fr 1fr; }
+    .bonus-images img,
+    .bonus-images .img-ph { width: 100%; height: 260px; object-fit: cover; border-radius: 0; border: none; background: #4c1d95; color: #a78bfa; }
+    .bonus-footer { padding: 40px; text-align: center; }
+    .bonus-footer h3 { font-size: 26px; font-weight: 700; margin-bottom: 28px; }
+
+    /* ── DEPOIMENTOS TIKTOK ── */
+    #dep-tiktok { background: #08080f; padding: 80px 40px; }
+    .dep-title { font-size: 24px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; color: var(--purple-light); margin-bottom: 44px; }
+    .dep-row { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; max-width: 1100px; margin: 0 auto; }
+    .dep-row::-webkit-scrollbar { display: none; }
+    .dep-card { min-width: 240px; scroll-snap-align: start; background: #111128; border: 1px solid #2d2d4a; border-radius: 16px; overflow: hidden; flex-shrink: 0; }
+    .dep-card .img-ph { height: 190px; border-radius: 0; border: none; background: #0f0f28; color: #6b7280; }
+    .dep-card-body { padding: 14px 16px; font-size: 13px; line-height: 1.6; color: #d1d5db; }
+    .dep-card-body strong { color: #fff; display: block; margin-bottom: 4px; }
+
+    /* ── RESULTADOS WHATSAPP ── */
+    #resultados { background: #0a0014; padding: 80px 40px; }
+    .resultados-title {
+      font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; margin-bottom: 48px;
+      background: linear-gradient(90deg,#7c3aed,#a855f7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .resultados-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; max-width: 1100px; margin: 0 auto; }
+    .res-card { background: #111128; border: 1px solid #2d2d4a; border-radius: 12px; overflow: hidden; }
+    .res-card .img-ph { height: 300px; border-radius: 0; border: none; background: #0d0d20; color: #6b7280; }
+
+    /* ── CONTEÚDO + PREÇO ── */
+    #preco { background: #08080f; padding: 80px 40px; }
+    .preco-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .preco-left h2 { font-size: 28px; font-weight: 800; margin-bottom: 28px; }
+    .preco-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .preco-list li { font-size: 15px; font-weight: 600; line-height: 1.5; padding-left: 24px; position: relative; }
+    .preco-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+
+    .pricing-card {
+      background: linear-gradient(155deg, #4c1d95, #2d1b69);
+      border-radius: 24px; padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(124,58,237,.45);
+    }
+    .pricing-logo-row1 { font-size: 38px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; line-height: 1.1; }
+    .pricing-logo-row2 { font-size: 38px; font-weight: 900; text-transform: uppercase; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; }
+    .pricing-logo-row2 .lu { color: var(--purple-pale); }
+    .pricing-sub   { font-size: 20px; font-weight: 700; margin-bottom: 22px; }
+    .pricing-badge { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .pricing-de    { font-size: 16px; color: #d1d5db; margin-bottom: 6px; }
+    .pricing-de del{ color: #9ca3af; }
+    .pricing-main  { display: flex; align-items: baseline; justify-content: center; gap: 4px; margin: 10px 0 4px; }
+    .pricing-parcel{ font-size: 22px; font-weight: 700; color: #d1d5db; margin-right: 4px; }
+    .pricing-val   { font-size: 72px; font-weight: 900; line-height: 1; }
+    .pricing-avista{ font-size: 15px; color: #d1d5db; margin-bottom: 28px; }
+
+    /* ── PÚBLICO ALVO (white) ── */
+    #publico { background: #fff; padding: 80px 40px; color: #111; }
+    .publico-title { font-size: 34px; font-weight: 800; text-align: center; color: var(--purple); margin-bottom: 48px; line-height: 1.35; }
+    .publico-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .publico-card {
+      background: #c084fc; border-radius: 14px;
+      padding: 28px 32px 28px 76px; position: relative;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+    .publico-card::before { content: '✓'; position: absolute; left: 26px; top: 50%; transform: translateY(-50%); font-size: 30px; font-weight: 900; color: #fff; }
+    .publico-card h3 { font-size: 16px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 6px; letter-spacing: .3px; }
+    .publico-card p  { font-size: 14px; color: #f3e8ff; line-height: 1.65; }
+
+    /* ── GARANTA RESULTADOS ── */
+    #garanta { background: #fff; color: #111; padding: 80px 40px; text-align: center; }
+    #garanta h2 { font-size: 32px; font-weight: 800; margin-bottom: 20px; }
+    #garanta p  { font-size: 16px; line-height: 1.8; color: #374151; max-width: 720px; margin: 0 auto; }
+
+    /* ── GARANTIA (gold badge) ── */
+    #garantia { background: #000; padding: 80px 40px; text-align: center; }
+    .badge-wrap { width: 220px; height: 220px; margin: 0 auto 44px; }
+    .badge-svg { width: 100%; height: 100%; }
+    #garantia h2 { font-size: 30px; font-weight: 900; margin-bottom: 20px; }
+    #garantia p  { font-size: 16px; line-height: 1.8; color: #d1d5db; max-width: 640px; margin: 0 auto; }
+
+    /* ── FAQ ── */
+    #faq { background: #08080f; padding: 80px 40px; }
+    .faq-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .faq-photo img,
+    .faq-photo .img-ph { width: 100%; height: 500px; object-fit: cover; object-position: top; border-radius: 20px; border: none; background: linear-gradient(160deg,#1a0a3c,#08080f); color: #7c60b0; }
+    .faq-side h2 { font-size: 34px; font-weight: 900; margin-bottom: 30px; text-transform: lowercase; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { border: 1px solid #2d3748; border-radius: 10px; overflow: hidden; }
+    .faq-q {
+      width: 100%; text-align: left; padding: 18px 22px; background: transparent; color: #fff;
+      font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      border: none; font-family: inherit; transition: background .15s;
+    }
+    .faq-q:hover { background: rgba(255,255,255,.04); }
+    .faq-q .chev { font-size: 18px; transition: transform .2s; flex-shrink: 0; margin-left: 12px; }
+    .faq-q.open .chev { transform: rotate(90deg); }
+    .faq-a { display: none; padding: 0 22px 18px; font-size: 14px; line-height: 1.75; color: #9ca3af; }
+    .faq-a.open { display: block; }
+
+    /* ── FOOTER ── */
+    #footer { background: #000; padding: 52px 40px; text-align: center; }
+    .social-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 28px; }
+    .soc-btn {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 900; color: #fff; text-decoration: none;
+    }
+    .soc-fb { background: #1877f2; }
+    .soc-yt { background: #ff0000; }
+    .soc-tw { background: #1da1f2; }
+    .soc-ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .footer-copy { font-size: 13px; color: #6b7280; }
+
+    /* ── STICKY BAR ── */
+    #sticky {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.95) 28%);
+      padding: 20px 24px 28px; text-align: center;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    #sticky.show { opacity: 1; pointer-events: all; }
+    #sticky .btn-cta { min-width: 360px; }
+
+    /* ── DIVIDER ── */
+    .divider { height: 3px; background: #000; }
+    .divider-white { height: 3px; background: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-grid, .desbloquear-grid, .instrutora-grid, .preco-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero-logo .row1, .hero-logo .row2 { font-size: 48px; }
+      .content-grid, .beneficios-grid { grid-template-columns: 1fr 1fr; }
+      .resultados-grid { grid-template-columns: 1fr 1fr; }
+      .faq-photo { display: none; }
+      .hero-photo { order: -1; }
+      #sticky .btn-cta { min-width: unset; width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .hero-grid, .desbloquear-grid, .instrutora-grid, .preco-grid { padding: 60px 20px; }
+      .content-grid, .pain-grid, .beneficios-grid, .resultados-grid { grid-template-columns: 1fr; }
+      .hero-logo .row1, .hero-logo .row2 { font-size: 38px; }
+      .bonus-images { grid-template-columns: 1fr; }
+      .section-wide, .hero-grid { padding-left: 20px; padding-right: 20px; }
+      #pain, #aprender, #desbloquear, #beneficios, #instrutora,
+      #aulas, #bonus, #dep-tiktok, #resultados, #preco,
+      #publico, #garanta, #garantia, #faq { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid">
+
+    <!-- Coluna esquerda: foto -->
+    <div class="hero-photo">
+      <!--
+        SUBSTITUA pela foto real da Luciana segurando o secador:
+        <img src="imagens/luciana-hero.png" alt="Luciana Monteiro" style="width:100%;height:620px;object-fit:cover;object-position:top;">
+      -->
+      <div class="img-ph" style="height:620px;background:linear-gradient(160deg,#2d1b69,#08080f);border:none;">
+        📸 Foto da Luciana Monteiro<br>segurando o secador<br><small>(substitua o &lt;div&gt; por &lt;img src="..."&gt;)</small>
+      </div>
+    </div>
+
+    <!-- Coluna direita: conteúdo -->
+    <div class="hero-content">
+
+      <!-- Countdown -->
+      <div class="countdown">
+        <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-lbl">dias</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">horas</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">min</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">seg</span></div>
+      </div>
+
+      <!-- Logo -->
+      <div class="hero-logo">
+        <div class="row1">ESCOVA <span class="dryer-icon">💨</span></div>
+        <div class="row2">LUCRATIVA</div>
+      </div>
+
+      <!-- Tagline -->
+      <p class="hero-tagline">APRENDA A TÉCNICA QUE TRANSFORMA ESCOVA EM LUCRO DIÁRIO E ELEVA SUA CARREIRA A OUTRO NÍVEL</p>
+
+      <!-- Vídeo YouTube
+           SUBSTITUA VIDEO_ID pelo ID real do vídeo (parte da URL após watch?v=)
+           Ex: https://youtu.be/abc123 → VIDEO_ID = abc123
+      -->
+      <div class="hero-video">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&showinfo=0"
+                title="Quem sou eu? — Luciana Monteiro"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+
+      <a href="#preco" class="btn-cta" style="align-self:flex-start;">COMPRAR</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE
+════════════════════════════════════════ -->
+<div id="marquee">
+  <div class="mq-track">
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+    <span class="mq-item">ESCOVA LUCRATIVA</span><span class="mq-item">ESCOVA LUCRATIVA</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     VOCÊ JÁ SENTIU QUE...
+════════════════════════════════════════ -->
+<section id="pain">
+  <div class="section-inner">
+    <h2 class="pain-title">VOCÊ JÁ SENTIU QUE...</h2>
+    <div class="pain-grid">
+      <div class="pain-card">Fazer uma escova em cada cliente <strong>demora muito</strong> mais do que deveria?</div>
+      <div class="pain-card">Gostaria de atender <strong>mais pessoas</strong>, mas o tempo apertado não permite?</div>
+      <div class="pain-card">Algumas escovas ficam incríveis, <strong>mas outras nem tanto</strong> e você não entende o motivo?</div>
+      <div class="pain-card">Ao final do dia, seu corpo está esgotado e você se pergunta se <strong>todo esse esforço realmente vale a pena?</strong></div>
+    </div>
+    <div class="pain-cta-block">
+      <h3>O curso Escova Lucrativa foi desenvolvido especialmente pra você!</h3>
+      <p>Domine técnicas que trazem <strong>mais agilidade, menos esforço físico e resultados que encantam suas clientes.</strong></p>
+      <a href="#preco" class="btn-cta">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     O QUE VOCÊ VAI APRENDER?
+════════════════════════════════════════ -->
+<section id="aprender">
+  <div class="section-wide">
+    <h2 class="grad-title">O que você vai aprender?</h2>
+    <div class="content-grid">
+
+      <div class="content-card">
+        <!-- <img src="imagens/finalizacoes.jpg" alt="Finalizações duradouras"> -->
+        <div class="img-ph">📸 Foto: Finalização e modelagem</div>
+        <div class="content-card-body"><h3>FINALIZAÇÕES E MODELAGENS<br><strong>DURADOURAS</strong></h3></div>
+      </div>
+
+      <div class="content-card">
+        <!-- <img src="imagens/acabamento.jpg" alt="Acabamento rápido"> -->
+        <div class="img-ph">📸 Foto: Acabamento profissional</div>
+        <div class="content-card-body"><h3>ACABAMENTO DE ALTO PADRÃO<br><strong>EM MENOS TEMPO</strong></h3></div>
+      </div>
+
+      <div class="content-card">
+        <!-- <img src="imagens/lavagem.jpg" alt="Lavagem inteligente"> -->
+        <div class="img-ph">📸 Foto: Lavagem do cabelo</div>
+        <div class="content-card-body"><h3>LAVAGEM INTELIGENTE:<br><strong>CABELO MAIS LEVE E FÁCIL DE ESCOVAR</strong></h3></div>
+      </div>
+
+      <div class="content-card">
+        <!-- <img src="imagens/tipos-fio.jpg" alt="Escova por tipo de fio"> -->
+        <div class="img-ph">📸 Foto: Escova por tipo de fio</div>
+        <div class="content-card-body"><h3>ESCOVA PARA CADA TIPO DE FIO:<br><strong>SEM RETRABALHO</strong></h3></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;">
+      <a href="#preco" class="btn-cta">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TUDO QUE VAI DESBLOQUEAR (slider)
+════════════════════════════════════════ -->
+<section id="desbloquear">
+  <h2 class="desbloquear-title">TUDO O QUE VOCÊ VAI DESBLOQUEAR<br>COM O ESCOVA LUCRATIVA</h2>
+  <div class="desbloquear-grid">
+
+    <!-- Foto da instrutora -->
+    <div class="desbloquear-photo">
+      <!-- <img src="imagens/luciana-purple.png" alt="Luciana Monteiro"> -->
+      <div class="img-ph" style="height:560px;">📸 Foto Luciana Monteiro<br>fundo roxo escuro</div>
+    </div>
+
+    <!-- Slider de módulos -->
+    <div>
+      <div class="slider-wrap">
+        <div class="slider-track" id="slTrack">
+
+          <div class="slider-slide">
+            <div class="module-card"><div class="module-neon"></div>
+              <h3>ESCOVA MODELADA PROFISSIONAL</h3>
+              <ul>
+                <li>O passo a passo da escova modelada profissional (inclusive em cabelos com progressiva)</li>
+                <li>Técnica de divisão de mechas para resultado impecável</li>
+                <li>Como garantir durabilidade e movimento natural</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="slider-slide">
+            <div class="module-card"><div class="module-neon"></div>
+              <h3>ESCOLHA CORRETA DE FERRAMENTAS</h3>
+              <ul>
+                <li>A escolher a escova, o secador e o protetor térmico ideal para cada tipo de fio</li>
+                <li>Como a ferramenta certa economiza tempo e protege o cabelo</li>
+                <li>Quais produtos usar em cada textura</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="slider-slide">
+            <div class="module-card"><div class="module-neon"></div>
+              <h3>EVITE OS ERROS MAIS COMUNS</h3>
+              <ul>
+                <li>Erros que comprometem o acabamento da escova</li>
+                <li>Falhas que reduzem a durabilidade do serviço</li>
+                <li>Como corrigir e evitar problemas ainda na execução</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="slider-slide">
+            <div class="module-card"><div class="module-neon"></div>
+              <h3>POSICIONAMENTO E AUTORIDADE</h3>
+              <ul>
+                <li>Como se posicionar como autoridade mesmo sendo autônoma ou iniciante</li>
+                <li>Atendimento estratégico que fideliza e aumenta o valor percebido</li>
+                <li>Estratégias para cobrar mais pelo seu serviço</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="slider-slide">
+            <div class="module-card"><div class="module-neon"></div>
+              <h3>LAVAGEM E PREPARAÇÃO</h3>
+              <ul>
+                <li>Como lavar e preparar o cabelo da forma correta pra garantir durabilidade</li>
+                <li>Técnicas de hidratação pré-escova</li>
+                <li>Os critérios técnicos pra entregar uma escova de excelência</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="slider-slide">
+            <div class="module-card"><div class="module-neon"></div>
+              <h3>NEGÓCIO E CRESCIMENTO</h3>
+              <ul>
+                <li>Como formalizar seu serviço como MEI</li>
+                <li>Precificação inteligente para aumentar seu faturamento</li>
+                <li>Como proteger seu crescimento como profissional</li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- /slider-track -->
+      </div>
+      <div class="slider-dots" id="slDots"></div>
+    </div>
+
+  </div>
+
+  <!-- CTA abaixo do slider -->
+  <div style="text-align:center;margin-top:60px;">
+    <a href="#preco" class="btn-cta">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     DE QUE FORMA... (benefícios white)
+════════════════════════════════════════ -->
+<section id="beneficios">
+  <div style="max-width:1100px;margin:0 auto;">
+    <h2 class="beneficios-title">De que forma o Escova Lucrativa pode facilitar sua rotina e valorizar seu trabalho</h2>
+    <div class="beneficios-grid">
+      <div class="benef-box">O passo a passo da escova modelada profissional (inclusive em cabelos com progressiva)</div>
+      <div class="benef-box">A escolher a escova, o secador e o protetor térmico ideal para cada tipo de fio</div>
+      <div class="benef-box">Como se posicionar como autoridade mesmo sendo autônoma ou iniciante</div>
+      <div class="benef-box">Atendimento estratégico que fideliza e aumenta o valor percebido do seu serviço</div>
+      <div class="benef-box">Como lavar e preparar o cabelo da forma correta pra garantir durabilidade na escova</div>
+      <div class="benef-box">Quais são os critérios técnicos pra entregar uma escova de excelência</div>
+      <div class="benef-box">Os erros mais comuns que te impedem de ter um bom resultado — e como evitar</div>
+      <div class="benef-box">Como formalizar seu serviço como MEI e proteger seu crescimento como profissional</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-white"></div>
+
+<!-- ═══════════════════════════════════════
+     INSTRUTORA
+════════════════════════════════════════ -->
+<section id="instrutora">
+  <div class="instrutora-grid">
+    <div class="instrutora-photo">
+      <!-- <img src="imagens/luciana-blazer.jpg" alt="Luciana Monteiro"> -->
+      <div class="img-ph" style="height:530px;">📸 Foto Luciana Monteiro<br>(blazer bege, braços cruzados,<br>fundo claro)</div>
+    </div>
+    <div class="instrutora-content">
+      <h2 class="instrutora-name">LUCIANA MONTEIRO</h2>
+      <p class="instrutora-bio">
+        Olá, sou Luciana Monteiro, cabeleireira e especialista em escovação desde os 15 anos no mercado da beleza. Durante minha carreira vi muitos profissionais lutar para oferecer escovações de qualidade e rapidez, sem danificar os cabelos das clientes. Por isso criei o Escova Lucrativa, um curso objetivo e completo que reúne tudo o que você precisa para se destacar. Seja você um iniciante ou um profissional buscando aperfeiçoamento, estou aqui para te guiar nessa jornada rumo ao sucesso.
+      </p>
+      <div class="instrutora-objetivo">
+        <h3>MEU OBJETIVO</h3>
+        <p class="instrutora-bio">
+          Nesse curso, você vai aprender tudo que eu gostaria que tivessem me ensinado lá no começo: técnica de verdade, escova que dura e uma postura que te faz ser reconhecida como profissional de respeito.
+        </p>
+        <a href="#preco" class="btn-cta" style="margin-top:28px;display:inline-block;">COMPRAR</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     AULAS PRÁTICAS
+════════════════════════════════════════ -->
+<section id="aulas">
+  <div class="section-wide">
+    <div class="content-grid">
+      <div class="content-card">
+        <!-- <img src="imagens/aula-modelo.jpg" alt="Aula prática"> -->
+        <div class="img-ph">📸 Foto: Aula prática em modelo real</div>
+        <div class="content-card-body">
+          <h3>Aulas Práticas em Modelos Reais</h3>
+          <p style="font-size:14px;color:#374151;line-height:1.65;margin-top:8px;">Nada de treinos superficiais! Aqui, você vai aprender escovação na prática, trabalhando em cabelos reais com diferentes texturas e desafios. É a preparação perfeita para atender qualquer cliente.</p>
+        </div>
+      </div>
+      <div class="content-card">
+        <!-- <img src="imagens/conteudo-claro.jpg" alt="Conteúdo detalhado"> -->
+        <div class="img-ph">📸 Foto: Luciana explicando técnica</div>
+        <div class="content-card-body">
+          <h3>Conteúdo Explicado de Forma Clara e Detalhada</h3>
+          <p style="font-size:14px;color:#374151;line-height:1.65;margin-top:8px;">Chega de enrolação! Com explicações claras e detalhadas, cada técnica será absorvida e aplicada imediatamente no seu dia a dia, garantindo evolução real.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SUPER BÔNUS
+════════════════════════════════════════ -->
+<section id="bonus">
+  <div class="section-wide">
+    <h2 class="bonus-heading">SUPER BÔNUS</h2>
+    <p class="bonus-sub">
+      Esses bônus sozinhos valeriam R$ 97, mas você leva<br>
+      totalmente de graça ao se inscrever hoje.
+    </p>
+    <h3 style="text-align:center;font-size:28px;font-weight:800;margin-bottom:40px;color:var(--purple-pale);">O que você vai encontrar<br>no curso Escova Lucrativa?</h3>
+    <div class="bonus-container">
+      <div class="bonus-images">
+        <!-- <img src="imagens/bonus1.jpg" alt="Bônus 1"> -->
+        <!-- <img src="imagens/bonus2.jpg" alt="Bônus 2"> -->
+        <div class="img-ph" style="height:260px;">📸 Foto: Cabeleireira com secador<br>(bônus — escova lateral)</div>
+        <div class="img-ph" style="height:260px;">📸 Foto: Cabeleireira com secador<br>(bônus — escova frontal)</div>
+      </div>
+      <div class="bonus-footer">
+        <h3>Aula extra:</h3>
+        <a href="#preco" class="btn-cta">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     COMENTÁRIOS / DEPOIMENTOS TIKTOK
+════════════════════════════════════════ -->
+<section id="dep-tiktok">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 class="dep-title">MAIS COMENTÁRIOS DE ALUNAS(OS)</h2>
+    <div class="dep-row">
+
+      <div class="dep-card">
+        <div class="img-ph" style="height:190px;font-size:11px;">📸 Print comentário TikTok<br>Jaqueline Souza</div>
+        <div class="dep-card-body"><strong>Jaqueline Souza</strong> "lindooooo, perfeito 👏👏👏👏👏"</div>
+      </div>
+
+      <div class="dep-card">
+        <div class="img-ph" style="height:190px;font-size:11px;">📸 Print comentário TikTok<br>mclaudia_sp1</div>
+        <div class="dep-card-body"><strong>mclaudia_sp1</strong> "Seguindo pq amei a explicacao"</div>
+      </div>
+
+      <div class="dep-card">
+        <div class="img-ph" style="height:190px;font-size:11px;">📸 Print comentário TikTok<br>RutelimaBeauty</div>
+        <div class="dep-card-body"><strong>RutelimaBeauty</strong> "Já vi tanto vídeo de passo a passo, mas esse ganhou meu coração, didática de forma simples e objetiva, simplesmente perfeito!"</div>
+      </div>
+
+      <div class="dep-card">
+        <div class="img-ph" style="height:190px;font-size:11px;">📸 Print comentário TikTok<br>DAYANA</div>
+        <div class="dep-card-body"><strong>DAYANA</strong> "Adorei ❤️"</div>
+      </div>
+
+      <div class="dep-card">
+        <div class="img-ph" style="height:190px;font-size:11px;">📸 Print comentário TikTok<br>Nathan Santana</div>
+        <div class="dep-card-body"><strong>Nathan Santana</strong> "Estou aprendendo muuito contigo, ja esta salvo 😁"</div>
+      </div>
+
+      <div class="dep-card">
+        <div class="img-ph" style="height:190px;font-size:11px;">📸 Print comentário TikTok<br>Rita Cassia</div>
+        <div class="dep-card-body"><strong>Rita Cassia</strong> "Amei maravilhosa ❤️❤️❤️"</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     RESULTADOS REAIS (WhatsApp)
+════════════════════════════════════════ -->
+<section id="resultados">
+  <div class="section-wide">
+    <h2 class="resultados-title">RESULTADOS REAIS DE QUEM JÁ FEZ ESCOVA LUCRATIVA</h2>
+    <div class="resultados-grid">
+      <div class="res-card">
+        <div class="img-ph" style="height:300px;font-size:11px;">📱 Print WhatsApp<br>Grupo Escova Lucrativa<br>Cristina Guedes — fotos de resultado</div>
+      </div>
+      <div class="res-card">
+        <div class="img-ph" style="height:300px;font-size:11px;">📱 Print WhatsApp<br>Nagila Shapovalov<br>"Oi, meninas! Passando aqui pra compartilhar..."</div>
+      </div>
+      <div class="res-card">
+        <div class="img-ph" style="height:300px;font-size:11px;">📱 Print WhatsApp<br>Grupo Escova Lucrativa<br>Resultados ✨❤️</div>
+      </div>
+      <div class="res-card">
+        <div class="img-ph" style="height:300px;font-size:11px;">📱 Print WhatsApp<br>Grupo Escova Lucrativa<br>Simone S — "Minha terceira escova 🥰"</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="#preco" class="btn-cta">COMPRAR</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     QUEM DEVE FAZER PARTE (white bg)
+════════════════════════════════════════ -->
+<section id="publico">
+  <h2 class="publico-title">Quem deve fazer parte do<br>Escova Lucrativa?</h2>
+  <div class="publico-list">
+    <div class="publico-card">
+      <h3>Iniciantes na Área da Beleza</h3>
+      <p>Se você está dando os primeiros passos na profissão, o Escova Lucrativa é a porta de entrada ideal para desenvolver uma base técnica forte e aprender, desde o início, como fazer escovas com precisão e segurança.</p>
+    </div>
+    <div class="publico-card">
+      <h3>Profissionais que desejam se aperfeiçoar</h3>
+      <p>Para cabeleireiros(as) que já atuam no mercado, mas buscam aprimorar suas habilidades, otimizar seus atendimentos e oferecer um serviço de alto nível que fidelize clientes.</p>
+    </div>
+    <div class="publico-card">
+      <h3>Empreendedores no setor de beleza</h3>
+      <p>Ideal para quem deseja abrir ou expandir seu próprio salão, atraindo mais clientes com técnicas exclusivas e um atendimento diferenciado.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════
+     CONFIRA + PRICING CARD
+════════════════════════════════════════ -->
+<section id="preco">
+  <div class="preco-grid">
+
+    <!-- Lado esquerdo: lista de conteúdo -->
+    <div class="preco-left">
+      <h2>Confira tudo que você terá acesso</h2>
+      <ul class="preco-list">
+        <li>Metodologia Exclusiva e Validada: Um passo a passo detalhado para resultados reais.</li>
+        <li>Prática em Modelos Reais: Prepare-se para atender qualquer cliente com confiança.</li>
+        <li>Técnicas de Lavagem Profissional para garantir durabilidade.</li>
+        <li>Escolha Correta de Ferramentas para cada tipo de fio.</li>
+        <li>Posicionamento e autoridade para cobrar mais.</li>
+        <li>Módulo de Negócios: MEI, precificação e atendimento estratégico.</li>
+        <li>Super Bônus: Aula extra exclusiva (valor R$ 97 — incluso).</li>
+      </ul>
+    </div>
+
+    <!-- Lado direito: card de preço -->
+    <div class="pricing-card">
+      <div class="pricing-logo-row1">ESCOVA 💨</div>
+      <div class="pricing-logo-row2"><span class="lu">LU</span>CRATIVA</div>
+      <p class="pricing-sub">Comece agora mesmo</p>
+      <p class="pricing-badge">OFERTA IMPERDÍVEL</p>
+      <p class="pricing-de">De <del>997,90</del> por apenas</p>
+      <div class="pricing-main">
+        <span class="pricing-parcel">12x</span>
+        <span class="pricing-val">R$17,90</span>
+      </div>
+      <p class="pricing-avista">ou 197,90 à vista</p>
+      <!-- SUBSTITUA href="#" pelo link de checkout da sua plataforma (Hotmart, Kiwify, etc.) -->
+      <a href="#" class="btn-cta" style="display:block;width:100%;padding:20px;">COMPRAR AGORA</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GARANTA RESULTADOS (white)
+════════════════════════════════════════ -->
+<section id="garanta">
+  <h2>Garanta Resultados Reais na Sua Carreira</h2>
+  <p>Não deixe que a falta de conhecimento em técnicas de escovação limite seu crescimento profissional. Com o Escova Lucrativa, você vai aprender tudo o que precisa para dominar a arte da escovação e encantar seus clientes com resultados impecáveis, de maneira rápida e eficiente.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GARANTIA (gold badge)
+════════════════════════════════════════ -->
+<section id="garantia">
+  <div class="badge-wrap">
+    <svg class="badge-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gG" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#fbbf24"/>
+          <stop offset="35%"  stop-color="#d97706"/>
+          <stop offset="70%"  stop-color="#f59e0b"/>
+          <stop offset="100%" stop-color="#92400e"/>
+        </linearGradient>
+        <linearGradient id="nG" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#1e3a6e"/>
+          <stop offset="100%" stop-color="#0c1f40"/>
+        </linearGradient>
+        <!-- arc para texto curvo -->
+        <path id="arcBot" d="M 46,148 A 68,68 0 0,0 174,148"/>
+        <path id="arcTop" d="M 55,80 A 58,58 0 0,1 165,80"/>
+      </defs>
+      <!-- Starburst (24 pontas) -->
+      <polygon fill="url(#gG)"
+        points="
+          110,6   115,34  130,14  128,42  148,26  139,52  162,42  146,65
+          170,61  148,80  172,83  146,98  168,108 141,116 160,132 132,133
+          146,152 118,147 125,167 100,157 75,167  82,147  54,152  68,133
+          40,132  59,116  32,108  54,98   28,83   52,80   30,61   54,65
+          41,42   64,52   55,26   75,42   72,14   90,34   110,6
+        "/>
+      <!-- Anel dourado -->
+      <circle cx="110" cy="110" r="86" fill="none" stroke="#f59e0b" stroke-width="5"/>
+      <!-- Círculo interior azul marinho -->
+      <circle cx="110" cy="110" r="78" fill="url(#nG)"/>
+      <!-- Anel interno dourado fino -->
+      <circle cx="110" cy="110" r="74" fill="none" stroke="#d97706" stroke-width="1.5"/>
+      <!-- Estrelas laterais -->
+      <text x="72"  y="78" text-anchor="middle" fill="#f59e0b" font-size="14" font-family="Arial">★</text>
+      <text x="148" y="78" text-anchor="middle" fill="#f59e0b" font-size="14" font-family="Arial">★</text>
+      <!-- "7 DIAS" -->
+      <text x="110" y="100" text-anchor="middle" fill="#fbbf24" font-size="24" font-weight="900" font-family="Arial, sans-serif" letter-spacing="3">7 DIAS</text>
+      <!-- linha divisória -->
+      <line x1="80" y1="110" x2="140" y2="110" stroke="#d97706" stroke-width="1.5"/>
+      <!-- "100%" -->
+      <text x="110" y="132" text-anchor="middle" fill="#fbbf24" font-size="20" font-weight="800" font-family="Arial, sans-serif">100%</text>
+      <!-- texto curvo inferior -->
+      <text fill="#f59e0b" font-size="9.5" font-weight="700" font-family="Arial, sans-serif" letter-spacing="1.5">
+        <textPath href="#arcBot" startOffset="50%" text-anchor="middle">OU SEU DINHEIRO DE VOLTA</textPath>
+      </text>
+    </svg>
+  </div>
+
+  <h2>GARANTIA INCONDICIONAL</h2>
+  <p>Estamos tão confiantes de que o Escova Lucrativa vai transformar sua carreira, que oferecemos uma garantia de 7 dias. Se você sentir que o curso não é para você, devolvemos seu dinheiro, sem complicações. Nosso compromisso é com a sua satisfação total.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq">
+  <div class="faq-grid">
+
+    <!-- Foto lado esquerdo -->
+    <div class="faq-photo">
+      <!-- <img src="imagens/luciana-celular.jpg" alt="Luciana Monteiro"> -->
+      <div class="img-ph" style="height:500px;border-radius:20px;">📸 Foto Luciana Monteiro<br>segurando celular<br>(fundo de salão)</div>
+    </div>
+
+    <!-- Acordeão lado direito -->
+    <div class="faq-side">
+      <h2>perguntas frequentes</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="faqToggle(this)">Guia do produto <span class="chev">›</span></button>
+          <div class="faq-a">O Escova Lucrativa é um curso online completo de escovação profissional ministrado por Luciana Monteiro. Você recebe acesso imediato a todas as aulas em vídeo, materiais de apoio e bônus exclusivos. O acesso é vitalício.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="faqToggle(this)">Como usar <span class="chev">›</span></button>
+          <div class="faq-a">Após a confirmação do pagamento, você receberá um e-mail com seus dados de acesso à plataforma. Lá você pode assistir as aulas no seu ritmo, pelo celular, tablet ou computador — onde e quando quiser.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="faqToggle(this)">Pagamento e envio <span class="chev">›</span></button>
+          <div class="faq-a">O curso é 100% digital — não há envio físico. Aceitamos cartão de crédito em até 12x, boleto bancário e PIX. O acesso é liberado imediatamente após a confirmação do pagamento.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="faqToggle(this)">Como funciona a garantia? <span class="chev">›</span></button>
+          <div class="faq-a">Você tem 7 dias a partir da data da compra para solicitar o reembolso integral, sem precisar dar nenhuma justificativa. Basta entrar em contato pelo suporte e devolvemos 100% do seu dinheiro.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="faqToggle(this)">Sobre o Estoque <span class="chev">›</span></button>
+          <div class="faq-a">Por ser um curso digital não há limitação de estoque. Porém, a oferta com desconto é por tempo limitado e pode ser encerrada a qualquer momento — aproveite enquanto o preço está assim.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="faqToggle(this)">Como verificar a qualidade? <span class="chev">›</span></button>
+          <div class="faq-a">Você pode conferir os depoimentos reais de alunas nesta página e os comentários nas redes sociais da Luciana Monteiro. E lembre-se: temos 7 dias de garantia total, então você experimenta sem risco nenhum.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="social-row">
+    <!-- SUBSTITUA href="#" pelos links reais -->
+    <a href="#" class="soc-btn soc-fb" aria-label="Facebook">f</a>
+    <a href="#" class="soc-btn soc-yt" aria-label="YouTube">▶</a>
+    <a href="#" class="soc-btn soc-tw" aria-label="Twitter / X">𝕏</a>
+    <a href="#" class="soc-btn soc-ig" aria-label="Instagram">◎</a>
+  </div>
+  <p class="footer-copy">© 2026 Escova Lucrativa — Luciana Monteiro. Todos os direitos reservados.</p>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     STICKY CTA (aparece ao rolar)
+════════════════════════════════════════ -->
+<div id="sticky">
+  <a href="#preco" class="btn-cta">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+  /* ── COUNTDOWN ─────────────────────────────────────────
+     Persiste o prazo no localStorage para não resetar ao recarregar.
+     Ajuste DEADLINE_DAYS para o número de dias da oferta. */
+  const DEADLINE_DAYS = 3;
+  const STORAGE_KEY = 'el_deadline';
+
+  function getDeadline() {
+    let stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored || Date.now() > parseInt(stored)) {
+      const deadline = Date.now() + DEADLINE_DAYS * 86400000;
+      localStorage.setItem(STORAGE_KEY, deadline);
+      return deadline;
+    }
+    return parseInt(stored);
+  }
+
+  const deadline = getDeadline();
+
+  function updateCountdown() {
+    const diff = Math.max(0, deadline - Date.now());
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ── FAQ ACCORDION ───────────────────────────────────── */
+  function faqToggle(btn) {
+    const ans   = btn.nextElementSibling;
+    const isOpen = ans.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+    if (!isOpen) { ans.classList.add('open'); btn.classList.add('open'); }
+  }
+
+  /* ── SLIDER (desbloquear) ────────────────────────────── */
+  const track  = document.getElementById('slTrack');
+  const slides = track.querySelectorAll('.slider-slide');
+  const dotsEl = document.getElementById('slDots');
+  let cur = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 's-dot' + (i === 0 ? ' on' : '');
+    dot.setAttribute('aria-label', 'Módulo ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  function goTo(idx) {
+    cur = idx;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dotsEl.querySelectorAll('.s-dot').forEach((d, i) => d.classList.toggle('on', i === idx));
+  }
+  setInterval(() => goTo((cur + 1) % slides.length), 5000);
+
+  /* ── STICKY CTA ──────────────────────────────────────── */
+  const stickyCta = document.getElementById('sticky');
+  const heroEl    = document.getElementById('hero');
+  const io = new IntersectionObserver(([e]) => {
+    stickyCta.classList.toggle('show', !e.isIntersecting);
+  }, { threshold: 0 });
+  io.observe(heroEl);
+</script>
+</body>
+</html>
