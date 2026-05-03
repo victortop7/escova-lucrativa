@@ -95,20 +95,6 @@
       pointer-events: none;
     }
 
-    /* Countdown: absoluto no topo esquerdo */
-    .countdown {
-      position: absolute;
-      top: 18px; left: 36px;
-      display: flex; gap: 6px;
-      z-index: 10;
-    }
-    .cd-box {
-      background: rgba(100,40,200,.85);
-      border-radius: 8px; padding: 6px 12px;
-      text-align: center; min-width: 56px;
-    }
-    .cd-num  { display: block; font-size: 26px; font-weight: 900; line-height: 1; }
-    .cd-lbl  { display: block; font-size: 8px; text-transform: uppercase; letter-spacing: 1px; color: #ddd6fe; margin-top: 3px; }
 
     .hero-wrap {
       width: 100%; max-width: 1280px; margin: 0 auto;
@@ -142,7 +128,7 @@
       display: flex; flex-direction: column;
       justify-content: flex-start;
       gap: 14px;
-      padding: 56px 0 20px;
+      padding: 20px 0 20px;
     }
     .hero-logo { line-height: 1; }
     .hero-logo img {
@@ -612,13 +598,6 @@
 ══════════════════════════════════════ -->
 <section id="hero">
 
-  <!-- Countdown: topo esquerdo (igual ao original) -->
-  <div class="countdown">
-    <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-lbl">dias</span></div>
-    <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">horas</span></div>
-    <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">min</span></div>
-    <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">seg</span></div>
-  </div>
 
   <div class="hero-wrap">
 
@@ -1270,23 +1249,6 @@
      JAVASCRIPT
 ══════════════════════════════════════ -->
 <script>
-  /* ── COUNTDOWN ── */
-  const DAYS = 3, KEY = 'el_dl';
-  function getDL() {
-    let v = localStorage.getItem(KEY);
-    if (!v || Date.now() > +v) { v = Date.now() + DAYS*86400000; localStorage.setItem(KEY, v); }
-    return +v;
-  }
-  const dl = getDL();
-  function tick() {
-    const d = Math.max(0, dl - Date.now());
-    const pad = n => String(Math.floor(n)).padStart(2,'0');
-    document.getElementById('cd-d').textContent = pad(d/86400000);
-    document.getElementById('cd-h').textContent = pad((d%86400000)/3600000);
-    document.getElementById('cd-m').textContent = pad((d%3600000)/60000);
-    document.getElementById('cd-s').textContent = pad((d%60000)/1000);
-  }
-  tick(); setInterval(tick, 1000);
 
 
   /* ── GENERIC SLIDER FACTORY ── */
