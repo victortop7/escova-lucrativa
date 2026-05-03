@@ -77,9 +77,8 @@
     ════════════════════════════════════ */
     #hero {
       background: radial-gradient(ellipse 80% 80% at 65% 55%, #4c1d95 0%, #1e0a3c 50%, #08080f 100%);
-      min-height: 680px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       overflow: visible;
       position: relative;
     }
@@ -113,9 +112,9 @@
 
     .hero-wrap {
       width: 100%; max-width: 1280px; margin: 0 auto;
-      padding: 0 32px 0 0; /* sem padding esquerdo — foto encosta */
+      padding: 0 32px 0 0;
       display: grid; grid-template-columns: 44% 56%;
-      gap: 24px; align-items: center;
+      gap: 24px; align-items: flex-start;
     }
 
     /* Left: foto */
@@ -141,9 +140,9 @@
     /* Right: conteúdo */
     .hero-content {
       display: flex; flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 14px;
-      padding: 70px 0 32px;
+      padding: 56px 0 20px;
     }
     .hero-logo { line-height: 1; }
     .hero-logo img {
