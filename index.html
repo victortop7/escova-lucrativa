@@ -80,7 +80,7 @@
       min-height: 680px;
       display: flex;
       align-items: center;
-      overflow: hidden;
+      overflow: visible;
       position: relative;
     }
     /* sparkle stars bg */
@@ -1284,17 +1284,17 @@
 
   <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
     <span style="color:#d1d5db;width:80px;">← → <span id="lbl-fx">0</span>px</span>
-    <input type="range" min="-200" max="200" value="0" step="4" id="sl-fx"
+    <input type="range" min="-300" max="300" value="0" step="4" id="sl-fx"
       style="flex:1;accent-color:#7c3aed;" oninput="upPos()">
   </div>
   <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
     <span style="color:#d1d5db;width:80px;">↑ ↓ <span id="lbl-fy">0</span>px</span>
-    <input type="range" min="-200" max="200" value="0" step="4" id="sl-fy"
+    <input type="range" min="-300" max="300" value="0" step="4" id="sl-fy"
       style="flex:1;accent-color:#7c3aed;" oninput="upPos()">
   </div>
   <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
     <span style="color:#d1d5db;width:80px;">↔ Tamanho</span>
-    <input type="range" min="300" max="900" value="580" step="10" id="sl-fh"
+    <input type="range" min="300" max="1000" value="580" step="10" id="sl-fh"
       style="flex:1;accent-color:#7c3aed;" oninput="upPos()">
     <span id="lbl-fh" style="color:#d1d5db;width:40px;">580</span>
   </div>
@@ -1304,17 +1304,17 @@
 
   <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
     <span style="color:#d1d5db;width:80px;">← → <span id="lbl-lx">0</span>px</span>
-    <input type="range" min="-100" max="100" value="0" step="2" id="sl-lx"
+    <input type="range" min="-200" max="200" value="0" step="2" id="sl-lx"
       style="flex:1;accent-color:#e879f9;" oninput="upPos()">
   </div>
   <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
     <span style="color:#d1d5db;width:80px;">↑ ↓ <span id="lbl-ly">0</span>px</span>
-    <input type="range" min="-100" max="100" value="0" step="2" id="sl-ly"
+    <input type="range" min="-200" max="200" value="0" step="2" id="sl-ly"
       style="flex:1;accent-color:#e879f9;" oninput="upPos()">
   </div>
   <div style="display:flex;gap:8px;margin-bottom:16px;align-items:center;">
     <span style="color:#d1d5db;width:80px;">↔ Largura</span>
-    <input type="range" min="200" max="700" value="500" step="10" id="sl-lw"
+    <input type="range" min="200" max="800" value="500" step="10" id="sl-lw"
       style="flex:1;accent-color:#e879f9;" oninput="upPos()">
     <span id="lbl-lw" style="color:#d1d5db;width:40px;">500</span>
   </div>
