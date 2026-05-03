@@ -103,17 +103,20 @@
       position: relative; z-index: 1;
     }
 
-    /* Left: stacked photos */
+    /* Left: single cutout photo */
     .hero-photos {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      height: 600px;
-      gap: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 620px;
     }
-    .hero-photos img,
-    .hero-photos .ph { width: 100%; height: 300px; object-fit: cover; object-position: top; }
-    .hero-photos .ph { height: 300px; background: linear-gradient(160deg,#2d1b69,#08080f); border: none; }
-    .hero-photos .ph:last-child { object-position: center 30%; background: linear-gradient(160deg,#1a0a3c,#08080f); }
+    .hero-photos img {
+      width: 100%;
+      height: 620px;
+      object-fit: contain;
+      object-position: bottom center;
+    }
+    .hero-photos .ph { width: 100%; height: 620px; background: transparent; border: none; }
 
     /* Right: content */
     .hero-content { display: flex; flex-direction: column; gap: 24px; }
@@ -593,22 +596,9 @@
 <section id="hero">
   <div class="hero-wrap">
 
-    <!-- Fotos empilhadas esquerda -->
+    <!-- Foto cutout esquerda (PNG com fundo transparente) -->
     <div class="hero-photos">
-      <!--
-        FOTO 1: Luciana segurando o secador (roupa preta, fundo roxo/escuro)
-        <img src="img/hero-secador.png" alt="Luciana Monteiro com secador" style="width:100%;height:300px;object-fit:cover;object-position:top;">
-      -->
-      <div class="ph" style="height:300px;background:linear-gradient(160deg,#2d1b69,#08080f);border:none;">
-        📸 Foto 1: Luciana com o secador<br><small>(roupa preta, fundo roxo)</small>
-      </div>
-      <!--
-        FOTO 2: Luciana segurando a escova redonda (mesma roupa, fundo escuro)
-        <img src="img/hero-escova.png" alt="Luciana Monteiro com escova" style="width:100%;height:300px;object-fit:cover;object-position:top;">
-      -->
-      <div class="ph" style="height:300px;background:linear-gradient(160deg,#1a0a3c,#08080f);border:none;">
-        📸 Foto 2: Luciana com a escova redonda<br><small>(mesma roupa, fundo escuro)</small>
-      </div>
+      <img src="img/luciana-hero.png" alt="Luciana Monteiro com secador e escova">
     </div>
 
     <!-- Conteúdo direita -->
