@@ -96,45 +96,48 @@
       pointer-events: none;
     }
 
+    /* Countdown: absoluto no topo esquerdo */
+    .countdown {
+      position: absolute;
+      top: 20px; left: 40px;
+      display: flex; gap: 8px;
+      z-index: 10;
+    }
+    .cd-box {
+      background: rgba(100,40,200,.8);
+      border-radius: 8px; padding: 8px 14px;
+      text-align: center; min-width: 62px;
+    }
+    .cd-num  { display: block; font-size: 28px; font-weight: 900; line-height: 1; }
+    .cd-lbl  { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #ddd6fe; margin-top: 3px; }
+
     .hero-wrap {
-      max-width: 1280px; margin: 0 auto; padding: 40px 48px 0;
-      display: grid; grid-template-columns: 48% 52%;
-      gap: 40px; align-items: center; width: 100%;
+      max-width: 1280px; margin: 0 auto; padding: 60px 40px 0;
+      display: grid; grid-template-columns: 46% 54%;
+      gap: 20px; align-items: center; width: 100%;
       position: relative; z-index: 1;
     }
 
-    /* Left: single cutout photo */
+    /* Left: cutout photo */
     .hero-photos {
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      height: 620px;
+      height: 600px;
     }
     .hero-photos img {
-      height: 620px;
+      height: 600px;
       width: auto;
-      max-width: 100%;
+      max-width: 105%;
       display: block;
       filter: drop-shadow(0 0 60px rgba(124,58,237,.6));
     }
-    .hero-photos .ph { width: 100%; height: 620px; background: transparent; border: none; }
+    .hero-photos .ph { width: 100%; height: 600px; background: transparent; border: none; }
 
     /* Right: content */
-    .hero-content { display: flex; flex-direction: column; gap: 20px; }
-
-    .countdown { display: flex; gap: 8px; }
-    .cd-box {
-      background: rgba(100,40,200,.7);
-      border: none;
-      border-radius: 8px; padding: 10px 18px;
-      text-align: center; min-width: 72px;
-    }
-    .cd-num  { display: block; font-size: 32px; font-weight: 900; line-height: 1; }
-    .cd-lbl  { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #ddd6fe; margin-top: 4px; }
-
+    .hero-content { display: flex; flex-direction: column; gap: 18px; }
     .hero-logo { line-height: 1; }
-    .hero-logo img { width: 100%; max-width: 520px; }
-
+    .hero-logo img { width: 100%; max-width: 560px; }
     .hero-tag { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: #e5e7eb; line-height: 1.65; }
 
     .hero-video {
@@ -594,9 +597,18 @@
      1. HERO
 ══════════════════════════════════════ -->
 <section id="hero">
+
+  <!-- Countdown: topo esquerdo (igual ao original) -->
+  <div class="countdown">
+    <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-lbl">dias</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">horas</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">min</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">seg</span></div>
+  </div>
+
   <div class="hero-wrap">
 
-    <!-- Foto cutout esquerda (PNG com fundo transparente) -->
+    <!-- Foto cutout esquerda -->
     <div class="hero-photos">
       <img src="img/luciana-hero.png" alt="Luciana Monteiro com secador e escova">
     </div>
@@ -604,15 +616,8 @@
     <!-- Conteúdo direita -->
     <div class="hero-content">
 
-      <div class="countdown">
-        <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-lbl">dias</span></div>
-        <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">horas</span></div>
-        <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">min</span></div>
-        <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">seg</span></div>
-      </div>
-
       <div class="hero-logo">
-        <img src="img/logo.png" alt="Escova Lucrativa" style="width:100%;max-width:520px;filter:drop-shadow(0 2px 12px rgba(0,0,0,.5));">
+        <img src="img/logo.png" alt="Escova Lucrativa" style="width:100%;max-width:560px;filter:drop-shadow(0 2px 12px rgba(0,0,0,.5));">
       </div>
 
       <p class="hero-tag">APRENDA A TÉCNICA QUE TRANSFORMA ESCOVA EM LUCRO DIÁRIO E ELEVA SUA CARREIRA A OUTRO NÍVEL</p>
