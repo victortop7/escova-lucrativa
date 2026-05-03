@@ -108,15 +108,17 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      height: 620px;
+      height: 640px;
+      overflow: visible;
     }
     .hero-photos img {
-      width: 100%;
-      height: 620px;
-      object-fit: contain;
-      object-position: bottom center;
+      height: 640px;
+      width: auto;
+      max-width: none;
+      display: block;
+      filter: drop-shadow(0 0 40px rgba(124,58,237,.4));
     }
-    .hero-photos .ph { width: 100%; height: 620px; background: transparent; border: none; }
+    .hero-photos .ph { width: 100%; height: 640px; background: transparent; border: none; }
 
     /* Right: content */
     .hero-content { display: flex; flex-direction: column; gap: 24px; }
@@ -627,7 +629,7 @@
         Ex: youtube.com/watch?v=abc123 → VIDEO_ID = abc123
       -->
       <div class="hero-video">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0"
+        <iframe src="https://www.youtube.com/embed/gNGeeIVKtvY?rel=0"
                 title="Quem sou eu? — Luciana Monteiro"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
