@@ -1271,6 +1271,41 @@
   <a href="#pricing" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
 </div>
 
+<!-- ══ PAINEL DE EDIÇÃO DO DEGRADÊ (remover quando finalizar) ══ -->
+<div id="edit-panel" style="
+  position:fixed; bottom:80px; right:16px; z-index:9999;
+  background:#1a1030; border:1px solid #7c3aed; border-radius:12px;
+  padding:16px 20px; width:240px; font-family:Inter,sans-serif;
+  box-shadow:0 8px 32px rgba(0,0,0,.6);
+">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+    <span style="color:#c084fc;font-size:13px;font-weight:700;">🎨 Degradê da foto</span>
+    <button onclick="document.getElementById('edit-panel').style.display='none'"
+      style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:18px;line-height:1;">×</button>
+  </div>
+
+  <label style="color:#d1d5db;font-size:12px;display:block;margin-bottom:4px;">
+    Altura: <span id="lbl-h">120</span>px
+  </label>
+  <input type="range" min="0" max="400" value="120" step="10" id="sl-h"
+    style="width:100%;margin-bottom:12px;accent-color:#7c3aed;"
+    oninput="updateFade()">
+
+  <label style="color:#d1d5db;font-size:12px;display:block;margin-bottom:4px;">
+    Opacidade: <span id="lbl-o">60</span>%
+  </label>
+  <input type="range" min="0" max="100" value="60" step="5" id="sl-o"
+    style="width:100%;margin-bottom:14px;accent-color:#7c3aed;"
+    oninput="updateFade()">
+
+  <button onclick="copyValues()" style="
+    width:100%;background:#7c3aed;color:#fff;border:none;border-radius:8px;
+    padding:8px;font-size:12px;font-weight:700;cursor:pointer;
+  ">📋 Copiar valores para o Claude</button>
+  <div id="copy-out" style="color:#22c55e;font-size:11px;margin-top:8px;display:none;"></div>
+</div>
+
+
 <!-- ══════════════════════════════════════
      JAVASCRIPT
 ══════════════════════════════════════ -->
@@ -1292,6 +1327,28 @@
     document.getElementById('cd-s').textContent = pad((d%60000)/1000);
   }
   tick(); setInterval(tick, 1000);
+
+  /* ── PAINEL DEGRADÊ ── */
+  function updateFade() {
+    const h = document.getElementById('sl-h').value;
+    const o = (document.getElementById('sl-o').value / 100).toFixed(2);
+    document.getElementById('lbl-h').textContent = h;
+    document.getElementById('lbl-o').textContent = Math.round(o * 100);
+    // injeta ou atualiza estilo dinâmico
+    let s = document.getElementById('fade-style');
+    if (!s) { s = document.createElement('style'); s.id = 'fade-style'; document.head.appendChild(s); }
+    s.textContent = `.hero-photos::after { height: ${h}px !important; background: linear-gradient(to top, rgba(13,5,32,${o}) 0%, transparent 100%) !important; }`;
+  }
+  function copyValues() {
+    const h = document.getElementById('sl-h').value;
+    const o = (document.getElementById('sl-o').value / 100).toFixed(2);
+    const txt = `height: ${h}px — opacidade: ${o}`;
+    navigator.clipboard.writeText(txt).catch(()=>{});
+    const out = document.getElementById('copy-out');
+    out.textContent = `✓ ${txt}`;
+    out.style.display = 'block';
+    setTimeout(() => out.style.display = 'none', 3000);
+  }
 
   /* ── GENERIC SLIDER FACTORY ── */
   function makeSlider(trackId, dotsId, autoMs) {
