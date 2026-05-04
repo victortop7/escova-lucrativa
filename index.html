@@ -614,7 +614,7 @@
     <div class="hero-content">
 
       <div class="hero-logo">
-        <img src="img/logo.png" alt="Escova Lucrativa" style="width:100%;max-width:560px;filter:drop-shadow(0 2px 12px rgba(0,0,0,.5));">
+        <img src="img/logo.png" alt="Escova Lucrativa" id="logo-img" style="filter:drop-shadow(0 2px 12px rgba(0,0,0,.5));">
       </div>
 
       <p class="hero-tag">APRENDA A TÉCNICA QUE TRANSFORMA ESCOVA EM LUCRO DIÁRIO E ELEVA SUA CARREIRA A OUTRO NÍVEL</p>
@@ -1263,11 +1263,11 @@
 
   <label style="color:#d1d5db;display:block;margin-bottom:4px;">🔤 Logo largura: <b id="v2">580</b>px</label>
   <input type="range" min="200" max="900" value="580" step="10" id="s2" style="width:100%;accent-color:#e879f9;margin-bottom:12px;"
-    oninput="v2.textContent=this.value;document.querySelector('.hero-logo img').style.width=this.value+'px'">
+    oninput="document.getElementById('v2').textContent=this.value;var l=document.getElementById('logo-img');l.style.width=this.value+'px';l.style.maxWidth='none';">
 
   <label style="color:#d1d5db;display:block;margin-bottom:4px;">🔤 Logo cima/baixo: <b id="v3">0</b>px</label>
   <input type="range" min="-100" max="200" value="0" step="4" id="s3" style="width:100%;accent-color:#e879f9;margin-bottom:16px;"
-    oninput="v3.textContent=this.value;document.querySelector('.hero-logo img').style.top=this.value+'px'">
+    oninput="document.getElementById('v3').textContent=this.value;document.getElementById('logo-img').style.top=this.value+'px'">
 
   <button onclick="
     const txt='modelo top:'+v1.textContent+'px | logo width:'+v2.textContent+'px top:'+v3.textContent+'px';
