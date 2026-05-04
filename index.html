@@ -79,17 +79,19 @@
     #hero {
       position: relative;
       width: 100%;
+      display: block;
+      line-height: 0; /* remove gap abaixo da imagem */
     }
     .hero-banner-img {
       width: 100%;
       display: block;
     }
-    /* Vídeo sobreposto ao banner */
+    /* Vídeo: entre os dois blocos de texto */
     .hero-video-overlay {
       position: absolute;
-      top: 34%;
-      left: 55%;
-      width: 38%;
+      top: 32%;
+      left: 42%;
+      width: 40%;
       border-radius: 12px;
       overflow: hidden;
       background: #000;
@@ -100,11 +102,12 @@
       width: 100%; height: 100%;
       display: block; border: none;
     }
-    /* Botão COMPRAR abaixo do banner */
-    .hero-cta-bar {
-      background: linear-gradient(180deg, #1a0a3c, #08080f);
-      padding: 24px 40px;
-      text-align: center;
+    /* Botão abaixo do texto inferior */
+    .hero-btn-overlay {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .hero-video {
@@ -564,22 +567,21 @@
      1. HERO
 ══════════════════════════════════════ -->
 <section id="hero">
-  <!-- Banner PNG do primeiro container -->
-  <img src="img/hero-banner.png" alt="Escova Lucrativa" class="hero-banner-img">
+  <img src="img/hero-banner01.png" alt="Escova Lucrativa" class="hero-banner-img">
 
-  <!-- Vídeo sobreposto — ajuste top/left/width no CSS se precisar -->
+  <!-- Vídeo: entre os dois textos -->
   <div class="hero-video-overlay">
     <iframe src="https://www.youtube.com/embed/gNGeeIVKtvY?rel=0"
             title="Quem sou eu? — Luciana Monteiro"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
   </div>
-</section>
 
-<!-- Botão COMPRAR abaixo do banner -->
-<div class="hero-cta-bar">
-  <a href="#pricing" class="btn">COMPRAR</a>
-</div>
+  <!-- Botão abaixo do texto inferior -->
+  <div class="hero-btn-overlay">
+    <a href="#pricing" class="btn">COMPRAR</a>
+  </div>
+</section>
 
 <!-- ══════════════════════════════════════
      2. MARQUEE
