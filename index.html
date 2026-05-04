@@ -1249,6 +1249,31 @@
 
 
 
+<!-- ══ PAINEL AJUSTE HERO ══ -->
+<div id="hp" style="position:fixed;bottom:80px;right:16px;z-index:9999;background:#1a1030;border:1px solid #7c3aed;border-radius:12px;padding:16px 18px;width:250px;font-family:Inter,sans-serif;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,.7);">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+    <span style="color:#c084fc;font-weight:700;font-size:13px;">🎛️ Ajuste Hero</span>
+    <button onclick="document.getElementById('hp').style.display='none'" style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:20px;line-height:1;padding:0;">×</button>
+  </div>
+
+  <label style="color:#d1d5db;display:block;margin-bottom:4px;">📸 Modelo ↑↓: <b id="lft">80</b>px</label>
+  <input type="range" min="-200" max="400" value="80" step="4" style="width:100%;accent-color:#7c3aed;margin-bottom:12px;" oninput="document.getElementById('lft').textContent=this.value;document.querySelector('.hero-photos img').style.top=this.value+'px';">
+
+  <label style="color:#d1d5db;display:block;margin-bottom:4px;">🔤 Logo largura: <b id="llw">700</b>px</label>
+  <input type="range" min="300" max="900" value="700" step="10" style="width:100%;accent-color:#e879f9;margin-bottom:16px;" oninput="document.getElementById('llw').textContent=this.value;document.querySelector('.hero-logo img').style.width=this.value+'px';">
+
+  <button onclick="
+    const t=document.getElementById('lft').textContent;
+    const w=document.getElementById('llw').textContent;
+    const txt='modelo top:'+t+'px | logo width:'+w+'px';
+    navigator.clipboard.writeText(txt).catch(()=>{});
+    document.getElementById('hpc').textContent='✓ '+txt;
+    document.getElementById('hpc').style.display='block';
+    setTimeout(()=>document.getElementById('hpc').style.display='none',4000);
+  " style="width:100%;background:#7c3aed;color:#fff;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;">📋 Copiar para o Claude</button>
+  <div id="hpc" style="color:#22c55e;font-size:11px;margin-top:8px;word-break:break-all;display:none;"></div>
+</div>
+
 <!-- ══════════════════════════════════════
      JAVASCRIPT
 ══════════════════════════════════════ -->
