@@ -90,8 +90,8 @@
     .hero-video-overlay {
       position: absolute;
       top: 32%;
-      left: 42%;
-      width: 40%;
+      left: 51%;
+      width: 38%;
       border-radius: 12px;
       overflow: hidden;
       background: #000;
@@ -102,11 +102,11 @@
       width: 100%; height: 100%;
       display: block; border: none;
     }
-    /* Botão abaixo do texto inferior */
+    /* Botão centralizado sob o texto inferior (texto está ~40-80% da largura) */
     .hero-btn-overlay {
       position: absolute;
-      bottom: 5%;
-      left: 50%;
+      bottom: 4%;
+      left: 60%;
       transform: translateX(-50%);
     }
 
@@ -1194,34 +1194,6 @@
 
 
 
-<!-- ══ PAINEL VÍDEO ══ -->
-<div id="vp" style="position:fixed;top:16px;right:16px;z-index:9999;background:#1a1030;border:1px solid #7c3aed;border-radius:12px;padding:14px 16px;width:255px;font-family:Inter,sans-serif;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,.8);">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-    <span style="color:#c084fc;font-weight:700;font-size:13px;">🎬 Posição do Vídeo</span>
-    <button onclick="document.getElementById('vp').style.display='none'" style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:20px;line-height:1;padding:0;">×</button>
-  </div>
-
-  <label style="color:#d1d5db;display:block;margin-bottom:3px;">← → Esquerda: <b id="vl">55</b>%</label>
-  <input type="range" min="0" max="90" value="55" step="1" style="width:100%;accent-color:#7c3aed;margin-bottom:10px;"
-    oninput="document.getElementById('vl').textContent=this.value;document.querySelector('.hero-video-overlay').style.left=this.value+'%'">
-
-  <label style="color:#d1d5db;display:block;margin-bottom:3px;">↑ ↓ Topo: <b id="vt">34</b>%</label>
-  <input type="range" min="0" max="90" value="34" step="1" style="width:100%;accent-color:#7c3aed;margin-bottom:10px;"
-    oninput="document.getElementById('vt').textContent=this.value;document.querySelector('.hero-video-overlay').style.top=this.value+'%'">
-
-  <label style="color:#d1d5db;display:block;margin-bottom:3px;">↔ Largura: <b id="vw">38</b>%</label>
-  <input type="range" min="10" max="70" value="38" step="1" style="width:100%;accent-color:#7c3aed;margin-bottom:14px;"
-    oninput="document.getElementById('vw').textContent=this.value;document.querySelector('.hero-video-overlay').style.width=this.value+'%'">
-
-  <button onclick="
-    const txt='left:'+document.getElementById('vl').textContent+'% top:'+document.getElementById('vt').textContent+'% width:'+document.getElementById('vw').textContent+'%';
-    navigator.clipboard.writeText(txt).catch(()=>{});
-    document.getElementById('vc').textContent='✓ '+txt;
-    document.getElementById('vc').style.display='block';
-    setTimeout(()=>document.getElementById('vc').style.display='none',4000);
-  " style="width:100%;background:#7c3aed;color:#fff;border:none;border-radius:8px;padding:8px;font-size:12px;font-weight:700;cursor:pointer;">📋 Copiar para o Claude</button>
-  <div id="vc" style="color:#22c55e;font-size:11px;margin-top:6px;word-break:break-all;display:none;"></div>
-</div>
 
 <!-- ══════════════════════════════════════
      JAVASCRIPT
