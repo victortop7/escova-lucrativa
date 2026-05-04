@@ -190,10 +190,9 @@
 
     .tiktok-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
       align-items: start;
-      position: relative;
     }
     .tiktok-card {
       background: #1a1a2e;
@@ -202,24 +201,10 @@
       overflow: hidden;
     }
     .tiktok-card:nth-child(1) { margin-top: 0; }
-    .tiktok-card:nth-child(2) { margin-top: 48px; }
-    .tiktok-card:nth-child(3) { margin-top: 20px; }
-    .tiktok-card:nth-child(4) { margin-top: 64px; }
-    .tiktok-card .ph { height: 200px; border-radius: 0; border: none; background: #0f0f28; }
-    .tiktok-body { padding: 14px 16px; font-size: 13px; line-height: 1.65; color: #d1d5db; }
-    .tiktok-body strong { color: #fff; display: block; margin-bottom: 4px; font-size: 12px; }
-
-    /* mini reel top-right */
-    .reel-thumb {
-      position: absolute;
-      top: -20px; right: 0;
-      width: 120px; height: 80px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,.5);
-      z-index: 2;
-    }
-    .reel-thumb .ph { height: 80px; border: none; border-radius: 0; background: #1a0a3c; font-size: 10px; }
+    .tiktok-card:nth-child(2) { margin-top: 32px; }
+    .tiktok-card:nth-child(3) { margin-top: 12px; }
+    .tiktok-card:nth-child(4) { margin-top: 48px; }
+    .tiktok-card:nth-child(5) { margin-top: 20px; }
 
     /* ════════════════════════════════════
        6. TUDO QUE VAI DESBLOQUEAR (slider)
@@ -548,7 +533,7 @@
       .hero-wrap, .unlock-grid, .unlock-cta, .bio-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
       .hero-logo .r1, .hero-logo .r2 { font-size: 44px; }
       .pain-grid, .wpp-slide, .benefits-grid, .learn-grid, .content-cards-grid, .instr-photos { grid-template-columns: 1fr 1fr; }
-      .tiktok-grid { grid-template-columns: 1fr 1fr; }
+      .tiktok-grid { grid-template-columns: repeat(3, 1fr); }
       .tiktok-card:nth-child(n) { margin-top: 0; }
       .faq-photo { display: none; }
       .faq-grid { grid-template-columns: 1fr; }
@@ -633,20 +618,20 @@
     <div class="wpp-slider-wrap">
       <div class="wpp-track" id="wppTrack">
 
-        <!-- Slide 1: 4 prints WhatsApp -->
+        <!-- Slide 1 -->
         <div class="wpp-slide">
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 1<br>Cristina Guedes — fotos resultado</div></div>
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 2<br>Nagila Shapovalov — depoimento longo</div></div>
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 3<br>Grupo Escova Lucrativa — resultados ✨</div></div>
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 4<br>Simone S — "Minha terceira escova 🥰"</div></div>
+          <div class="wpp-card"><img src="img/img1.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card"><img src="img/img6.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card"><img src="img/img5.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card"><img src="img/img4.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
         </div>
 
-        <!-- Slide 2: mais 4 prints -->
+        <!-- Slide 2 -->
         <div class="wpp-slide">
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 5<br>"Segue um dos meus resultados com finalização 🥰"</div></div>
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 6<br>"Mais uma escova!! Tô amando a técnica!!!"</div></div>
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 7<br>"Meninas, estou curtindo muito, as novas técnicas..."</div></div>
-          <div class="wpp-card"><div class="ph" style="height:280px;font-size:10px;">📱 Print WhatsApp 8<br>"Minha terceira escova" 🥰 15:21</div></div>
+          <div class="wpp-card"><img src="img/img7.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card"><img src="img/img2.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card"><img src="img/img3.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card"><img src="img/img4.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
         </div>
 
       </div>
@@ -667,46 +652,24 @@
     <h2>MAIS COMENTÁRIOS DE ALUNAS(OS)</h2>
     <div class="tiktok-grid" style="position:relative;">
 
-      <!-- Mini reel thumbnail top-right -->
-      <div class="reel-thumb">
-        <div class="ph" style="height:80px;font-size:10px;">📱 Reel</div>
+      <div class="tiktok-card">
+        <img src="img/tiktok1.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
       <div class="tiktok-card">
-        <!--<img src="img/comment-tiktok-1.png" alt="Comentário TikTok">-->
-        <div class="ph" style="height:200px;font-size:10px;">📸 Print TikTok<br>Jaqueline Souza</div>
-        <div class="tiktok-body">
-          <strong>Jaqueline Souza</strong>
-          "lindooooo,perfeito 👏👏👏👏👏"<br>
-          <span style="color:#a855f7;font-size:11px;">↳ Luciana: Obrigada ❤️🥰</span>
-        </div>
+        <img src="img/tiktok2.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
       <div class="tiktok-card">
-        <div class="ph" style="height:200px;font-size:10px;">📸 Print TikTok<br>mclaudia_sp1 + dalvinha</div>
-        <div class="tiktok-body">
-          <strong>mclaudia_sp1</strong>
-          "Seguindo pq amei a explicacao"<br>
-          <strong style="margin-top:6px;">dalvinha</strong>
-          "linda muito linda"
-        </div>
+        <img src="img/tiktok3.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
       <div class="tiktok-card">
-        <div class="ph" style="height:200px;font-size:10px;">📸 Print TikTok<br>RutelimaBeauty</div>
-        <div class="tiktok-body">
-          <strong>RutelimaBeauty</strong>
-          "Já vi tanto vídeo de passo a passo, mas esse ganhou meu coração, didática de forma simples e objetiva, simplesmente perfeito!"
-        </div>
+        <img src="img/tiktok4.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
       <div class="tiktok-card">
-        <div class="ph" style="height:200px;font-size:10px;">📸 Print TikTok<br>DAYANA + Nathan Santana</div>
-        <div class="tiktok-body">
-          <strong>DAYANA</strong> "Adorei ❤️"<br>
-          <strong style="margin-top:6px;">Nathan Santana</strong>
-          "Estou aprendendo muuito contigo, ja esta salvo 😁"
-        </div>
+        <img src="img/tiktok5.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
     </div>
@@ -1038,7 +1001,7 @@
           Logo PNG oficial do curso:
           <img src="img/logo-escova-lucrativa.png" alt="Escova Lucrativa" style="max-width:280px;margin:0 auto;">
         -->
-        <img src="img/logo.png" alt="Escova Lucrativa" style="max-width:260px;width:100%;margin:0 auto 8px;display:block;">
+        <img src="logo/logo.png" alt="Escova Lucrativa" style="max-width:260px;width:100%;margin:0 auto 8px;display:block;">
       </div>
       <p class="price-sub">Comece agora mesmo</p>
       <p class="price-badge">OFERTA IMPERDÍVEL</p>
