@@ -1191,33 +1191,6 @@
 
 
 
-<!-- ══ PAINEL HERO ══ -->
-<div id="hp" style="position:fixed;bottom:80px;right:16px;z-index:9999;background:#1a1030;border:1px solid #7c3aed;border-radius:12px;padding:16px 18px;width:260px;font-family:Inter,sans-serif;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,.8);">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-    <span style="color:#c084fc;font-weight:700;font-size:13px;">🎛️ Ajuste Hero</span>
-    <button onclick="document.getElementById('hp').style.display='none'" style="background:none;border:none;color:#9ca3af;cursor:pointer;font-size:20px;line-height:1;padding:0;">×</button>
-  </div>
-
-  <label style="color:#d1d5db;display:block;margin-bottom:4px;">📸 Modelo cima/baixo: <b id="v1">0</b>px</label>
-  <input type="range" min="-100" max="400" value="0" step="4" id="s1" style="width:100%;accent-color:#7c3aed;margin-bottom:12px;"
-    oninput="v1.textContent=this.value;document.querySelector('.hero-photos img').style.top=this.value+'px'">
-
-  <label style="color:#d1d5db;display:block;margin-bottom:4px;">🔤 Logo largura: <b id="v2">580</b>px</label>
-  <input type="range" min="200" max="900" value="580" step="10" id="s2" style="width:100%;accent-color:#e879f9;margin-bottom:12px;"
-    oninput="document.getElementById('v2').textContent=this.value;var l=document.getElementById('logo-img');l.style.width=this.value+'px';l.style.maxWidth='none';">
-
-  <label style="color:#d1d5db;display:block;margin-bottom:4px;">🔤 Logo cima/baixo: <b id="v3">0</b>px</label>
-  <input type="range" min="-100" max="200" value="0" step="4" id="s3" style="width:100%;accent-color:#e879f9;margin-bottom:16px;"
-    oninput="document.getElementById('v3').textContent=this.value;document.getElementById('logo-img').style.top=this.value+'px'">
-
-  <button onclick="
-    const txt='modelo top:'+v1.textContent+'px | logo width:'+v2.textContent+'px top:'+v3.textContent+'px';
-    navigator.clipboard.writeText(txt).catch(()=>{});
-    cp.textContent='✓ '+txt; cp.style.display='block';
-    setTimeout(()=>cp.style.display='none',4000);
-  " style="width:100%;background:#7c3aed;color:#fff;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;">📋 Copiar para o Claude</button>
-  <div id="cp" style="color:#22c55e;font-size:11px;margin-top:8px;word-break:break-all;display:none;"></div>
-</div>
 
 <!-- ══ PAINEL VÍDEO ══ -->
 <div id="vp" style="position:fixed;top:16px;right:16px;z-index:9999;background:#1a1030;border:1px solid #7c3aed;border-radius:12px;padding:14px 16px;width:255px;font-family:Inter,sans-serif;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,.8);">
