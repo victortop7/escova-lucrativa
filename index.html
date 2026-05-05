@@ -539,20 +539,12 @@
       .faq-grid { grid-template-columns: 1fr; }
       #sticky .btn { min-width: unset; width: 100%; }
     }
-    @media (max-width: 600px) {
-      .pain-grid, .learn-grid, .content-cards-grid, .instr-photos, .benefits-grid, .tiktok-grid { grid-template-columns: 1fr; }
-      .wpp-slide { grid-template-columns: 1fr 1fr; }
-      .hero-logo .r1, .hero-logo .r2 { font-size: 36px; }
-      .bonus-photos { grid-template-columns: 1fr; }
-      #pain, #resultados, #comments, #unlock, #benefits, #learn,
-      #bonus, #bonus-bridge, #instructor-photos, #content-cards, #audience,
-      #bio, #pricing, #guarantee-white, #guarantee, #faq { padding: 60px 20px; }
-
-      .hero-video-overlay { display: none; }
+    @media (max-width: 768px) {
+      .hero-video-overlay { display: none !important; }
       .hero-btn-overlay {
-        position: static;
-        transform: none;
-        display: block;
+        position: static !important;
+        transform: none !important;
+        display: block !important;
         padding: 16px 20px;
         background: #000;
       }
@@ -563,6 +555,15 @@
         padding: 18px 24px;
         font-size: 16px;
       }
+    }
+    @media (max-width: 600px) {
+      .pain-grid, .learn-grid, .content-cards-grid, .instr-photos, .benefits-grid, .tiktok-grid { grid-template-columns: 1fr; }
+      .wpp-slide { grid-template-columns: 1fr 1fr; }
+      .hero-logo .r1, .hero-logo .r2 { font-size: 36px; }
+      .bonus-photos { grid-template-columns: 1fr; }
+      #pain, #resultados, #comments, #unlock, #benefits, #learn,
+      #bonus, #bonus-bridge, #instructor-photos, #content-cards, #audience,
+      #bio, #pricing, #guarantee-white, #guarantee, #faq { padding: 60px 20px; }
     }
   </style>
 </head>
