@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Escova Lucrativa — Luciana Monteiro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -530,7 +533,10 @@
        RESPONSIVE
     ════════════════════════════════════ */
     @media (max-width: 900px) {
-      .hero-wrap, .unlock-grid, .unlock-cta, .bio-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero-wrap, .unlock-grid, .unlock-cta, .bio-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr !important; }
+      .unlock-grid, .unlock-cta { padding: 0 20px !important; }
+      .unlock-photo img { height: 320px !important; }
+      #unlock { overflow: hidden !important; }
       .hero-logo .r1, .hero-logo .r2 { font-size: 44px; }
       .pain-grid, .wpp-slide, .benefits-grid, .learn-grid, .content-cards-grid, .instr-photos { grid-template-columns: 1fr 1fr; }
       .tiktok-grid { grid-template-columns: repeat(3, 1fr); }
