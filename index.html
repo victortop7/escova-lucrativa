@@ -1200,6 +1200,25 @@
   new IntersectionObserver(([e])=>sticky.classList.toggle('show',!e.isIntersecting),{threshold:0})
     .observe(document.getElementById('hero'));
 
+  /* ── MOBILE LAYOUT FIX ── */
+  function fixMobile() {
+    if (window.innerWidth <= 900) {
+      var grid = document.querySelector('.unlock-grid');
+      if (grid) {
+        grid.style.cssText = 'display:grid;grid-template-columns:1fr;padding:0 20px;gap:24px;';
+      }
+      document.querySelectorAll('.unlock-photo img').forEach(function(img) {
+        img.style.height = '320px';
+      });
+      document.querySelectorAll('.neon-card').forEach(function(card) {
+        card.style.cssText = 'padding:24px 20px;border-radius:16px;';
+      });
+      document.documentElement.style.overflowX = 'hidden';
+    }
+  }
+  fixMobile();
+  window.addEventListener('resize', fixMobile);
+
 </script>
 </body>
 </html>
