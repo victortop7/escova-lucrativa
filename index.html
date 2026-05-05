@@ -1200,6 +1200,18 @@
   const sticky = document.getElementById('sticky');
   new IntersectionObserver(([e])=>sticky.classList.toggle('show',!e.isIntersecting),{threshold:0})
     .observe(document.getElementById('hero'));
+
+  // Hero mobile: esconde video, deixa botão estático
+  if (window.innerWidth <= 768) {
+    var vid = document.querySelector('.hero-video-overlay');
+    var btn = document.querySelector('.hero-btn-overlay');
+    if (vid) vid.style.cssText = 'display:none!important';
+    if (btn) {
+      btn.style.cssText = 'position:static!important;transform:none!important;display:block!important;padding:16px 20px;background:#000;';
+      var btnLink = btn.querySelector('.btn');
+      if (btnLink) btnLink.style.cssText = 'display:block;width:100%;text-align:center;padding:18px 24px;font-size:16px;';
+    }
+  }
 </script>
 </body>
 </html>
