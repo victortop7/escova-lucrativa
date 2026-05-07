@@ -575,6 +575,31 @@
       #bonus, #bonus-bridge, #instructor-photos, #content-cards, #audience,
       #bio, #pricing, #guarantee-white, #guarantee, #faq { padding: 60px 20px; }
     }
+  /* ════════════════════════════════════
+     SCROLL ANIMATIONS
+  ════════════════════════════════════ */
+  [data-anim] {
+    opacity: 0;
+    transition: opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1);
+  }
+  [data-anim="up"]    { transform: translateY(48px); }
+  [data-anim="left"]  { transform: translateX(-48px); }
+  [data-anim="right"] { transform: translateX(48px); }
+  [data-anim="scale"] { transform: scale(.88); }
+  [data-anim="btn"]   { transform: translateY(24px); }
+
+  [data-anim].visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-delay="1"] { transition-delay: .1s; }
+  [data-delay="2"] { transition-delay: .2s; }
+  [data-delay="3"] { transition-delay: .3s; }
+  [data-delay="4"] { transition-delay: .4s; }
+  [data-delay="5"] { transition-delay: .5s; }
+  [data-delay="6"] { transition-delay: .6s; }
+
   </style>
 </head>
 <body style="overflow-x:hidden;">
@@ -598,7 +623,7 @@
 
   <!-- Botão abaixo do texto inferior -->
   <div class="hero-btn-overlay">
-    <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">COMPRAR</a>
+    <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">COMPRAR</a>
   </div>
 </section>
 
@@ -625,15 +650,15 @@
   <h2>VOCÊ JÁ SENTIU QUE...</h2>
   <div class="pain-box">
     <div class="pain-grid">
-      <div class="pain-card">Fazer uma escova em cada cliente <strong>demora muito</strong> mais do que deveria?</div>
-      <div class="pain-card">Gostaria de atender <strong>mais pessoas</strong>, mas o tempo apertado não permite?</div>
-      <div class="pain-card">Algumas escovas ficam incríveis, <strong>mas outras nem tanto</strong> e você não entende o motivo?</div>
-      <div class="pain-card">Ao final do dia, seu corpo está esgotado e você se pergunta se <strong>todo esse esforço realmente vale a pena?</strong></div>
+      <div class="pain-card" data-anim="up">Fazer uma escova em cada cliente <strong>demora muito</strong> mais do que deveria?</div>
+      <div class="pain-card" data-anim="up">Gostaria de atender <strong>mais pessoas</strong>, mas o tempo apertado não permite?</div>
+      <div class="pain-card" data-anim="up">Algumas escovas ficam incríveis, <strong>mas outras nem tanto</strong> e você não entende o motivo?</div>
+      <div class="pain-card" data-anim="up">Ao final do dia, seu corpo está esgotado e você se pergunta se <strong>todo esse esforço realmente vale a pena?</strong></div>
     </div>
     <div class="pain-cta">
       <h3>O curso Escova Lucrativa foi desenvolvido especialmente pra você!</h3>
       <p>Domine técnicas que trazem <strong>mais agilidade, menos esforço físico e resultados que encantam suas clientes.</strong></p>
-      <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+      <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
     </div>
   </div>
 </section>
@@ -643,25 +668,25 @@
 ══════════════════════════════════════ -->
 <section id="resultados">
   <div class="resultados-inner">
-    <h2 class="resultados-title">RESULTADOS REAIS DE QUEM JÁ FEZ ESCOVA LUCRATIVA</h2>
+    <h2 class="resultados-title" data-anim="up">RESULTADOS REAIS DE QUEM JÁ FEZ ESCOVA LUCRATIVA</h2>
 
     <div class="wpp-slider-wrap">
       <div class="wpp-track" id="wppTrack">
 
         <!-- Slide 1 -->
         <div class="wpp-slide">
-          <div class="wpp-card"><img src="img/img1.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
-          <div class="wpp-card"><img src="img/img6.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
-          <div class="wpp-card"><img src="img/img5.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
-          <div class="wpp-card"><img src="img/img4.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img1.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img6.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img5.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img4.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
         </div>
 
         <!-- Slide 2 -->
         <div class="wpp-slide">
-          <div class="wpp-card"><img src="img/img7.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
-          <div class="wpp-card"><img src="img/img2.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
-          <div class="wpp-card"><img src="img/img3.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
-          <div class="wpp-card"><img src="img/img4.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img7.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img2.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img3.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
+          <div class="wpp-card" data-anim="up"><img src="img/img4.jpeg" alt="Feedback WhatsApp" style="width:100%;height:320px;object-fit:cover;display:block;"></div>
         </div>
 
       </div>
@@ -669,7 +694,7 @@
     <div class="slider-dots" id="wppDots"></div>
 
     <div class="btn-wrap">
-      <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">COMPRAR</a>
+      <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">COMPRAR</a>
     </div>
   </div>
 </section>
@@ -682,23 +707,23 @@
     <h2>MAIS COMENTÁRIOS DE ALUNAS(OS)</h2>
     <div class="tiktok-grid" style="position:relative;">
 
-      <div class="tiktok-card">
+      <div class="tiktok-card" data-anim="up">
         <img src="img/tiktok1.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
-      <div class="tiktok-card">
+      <div class="tiktok-card" data-anim="up">
         <img src="img/tiktok2.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
-      <div class="tiktok-card">
+      <div class="tiktok-card" data-anim="up">
         <img src="img/tiktok3.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
-      <div class="tiktok-card">
+      <div class="tiktok-card" data-anim="up">
         <img src="img/tiktok4.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
-      <div class="tiktok-card">
+      <div class="tiktok-card" data-anim="up">
         <img src="img/tiktok5.jpeg" alt="Comentário TikTok" style="width:100%;display:block;border-radius:8px 8px 0 0;object-fit:cover;">
       </div>
 
@@ -710,7 +735,7 @@
      6. TUDO QUE VAI DESBLOQUEAR (slider)
 ══════════════════════════════════════ -->
 <section id="unlock">
-  <h2 class="unlock-title">TUDO O QUE VOCÊ VAI DESBLOQUEAR<br>COM O ESCOVA LUCRATIVA</h2>
+  <h2 class="unlock-title" data-anim="up">TUDO O QUE VOCÊ VAI DESBLOQUEAR<br>COM O ESCOVA LUCRATIVA</h2>
 
   <div class="unlock-grid">
     <!-- Foto grande esquerda -->
@@ -724,7 +749,7 @@
         <div class="unlock-track" id="unlockTrack">
 
           <div class="unlock-slide">
-            <div class="neon-card"><div class="neon-inner"></div>
+            <div class="neon-card" data-anim="scale"><div class="neon-inner"></div>
               <h3>ESCOVA MODELADA PROFISSIONAL</h3>
               <p>Resultado perfeito em qualquer tipo de fio</p>
               <ul>
@@ -736,7 +761,7 @@
           </div>
 
           <div class="unlock-slide">
-            <div class="neon-card"><div class="neon-inner"></div>
+            <div class="neon-card" data-anim="scale"><div class="neon-inner"></div>
               <h3>ESCOLHA CORRETA DE FERRAMENTAS</h3>
               <p>Resultado profissional começa na escolha certa</p>
               <ul>
@@ -748,7 +773,7 @@
           </div>
 
           <div class="unlock-slide">
-            <div class="neon-card"><div class="neon-inner"></div>
+            <div class="neon-card" data-anim="scale"><div class="neon-inner"></div>
               <h3>EVITE OS ERROS MAIS COMUNS</h3>
               <p>Pare de perder resultado e tempo</p>
               <ul>
@@ -760,7 +785,7 @@
           </div>
 
           <div class="unlock-slide">
-            <div class="neon-card"><div class="neon-inner"></div>
+            <div class="neon-card" data-anim="scale"><div class="neon-inner"></div>
               <h3>POSICIONAMENTO E AUTORIDADE</h3>
               <p>Seja reconhecida como referência</p>
               <ul>
@@ -772,7 +797,7 @@
           </div>
 
           <div class="unlock-slide">
-            <div class="neon-card"><div class="neon-inner"></div>
+            <div class="neon-card" data-anim="scale"><div class="neon-inner"></div>
               <h3>LAVAGEM E PREPARAÇÃO</h3>
               <p>A base de uma escova que dura</p>
               <ul>
@@ -784,7 +809,7 @@
           </div>
 
           <div class="unlock-slide">
-            <div class="neon-card"><div class="neon-inner"></div>
+            <div class="neon-card" data-anim="scale"><div class="neon-inner"></div>
               <h3>NEGÓCIO E CRESCIMENTO</h3>
               <p>Profissionalize sua carreira</p>
               <ul>
@@ -796,7 +821,7 @@
           </div>
 
           <div class="unlock-slide">
-            <div class="neon-card"><div class="neon-inner"></div>
+            <div class="neon-card" data-anim="scale"><div class="neon-inner"></div>
               <h3>ATENDIMENTO LUCRATIVO</h3>
               <p>Fidelize e aumente sua clientela</p>
               <ul>
@@ -815,7 +840,7 @@
 
   <!-- CTA centralizado -->
   <div style="text-align:center;padding:40px 20px;">
-    <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+    <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
   </div>
 </section>
 
@@ -827,17 +852,17 @@
 <section id="benefits">
   <h2>De que forma o Escova Lucrativa pode facilitar sua rotina e valorizar seu trabalho</h2>
   <div class="benefits-grid">
-    <div class="benef-box">O passo a passo da escova modelada profissional (inclusive em cabelos com progressiva)</div>
-    <div class="benef-box">A escolher a escova, o secador e o protetor térmico ideal para cada tipo de fio</div>
-    <div class="benef-box">Como se posicionar como autoridade mesmo sendo autônoma ou iniciante</div>
-    <div class="benef-box">Atendimento estratégico que fideliza e aumenta o valor percebido do seu serviço</div>
-    <div class="benef-box">Como lavar e preparar o cabelo da forma correta pra garantir durabilidade na escova</div>
-    <div class="benef-box">Quais são os critérios técnicos pra entregar uma escova de excelência</div>
-    <div class="benef-box">Os erros mais comuns que te impedem de ter um bom resultado — e como evitar</div>
-    <div class="benef-box">Como formalizar seu serviço como MEI e proteger seu crescimento como profissional</div>
+    <div class="benef-box" data-anim="up">O passo a passo da escova modelada profissional (inclusive em cabelos com progressiva)</div>
+    <div class="benef-box" data-anim="up">A escolher a escova, o secador e o protetor térmico ideal para cada tipo de fio</div>
+    <div class="benef-box" data-anim="up">Como se posicionar como autoridade mesmo sendo autônoma ou iniciante</div>
+    <div class="benef-box" data-anim="up">Atendimento estratégico que fideliza e aumenta o valor percebido do seu serviço</div>
+    <div class="benef-box" data-anim="up">Como lavar e preparar o cabelo da forma correta pra garantir durabilidade na escova</div>
+    <div class="benef-box" data-anim="up">Quais são os critérios técnicos pra entregar uma escova de excelência</div>
+    <div class="benef-box" data-anim="up">Os erros mais comuns que te impedem de ter um bom resultado — e como evitar</div>
+    <div class="benef-box" data-anim="up">Como formalizar seu serviço como MEI e proteger seu crescimento como profissional</div>
   </div>
   <div class="btn-wrap">
-    <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+    <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
   </div>
 </section>
 
@@ -878,7 +903,7 @@
      9. SUPER BÔNUS
 ══════════════════════════════════════ -->
 <section id="bonus">
-  <h2 class="bonus-title">SUPER BÔNUS</h2>
+  <h2 class="bonus-title" data-anim="up">SUPER BÔNUS</h2>
   <div class="bonus-box">
     <div class="bonus-photos">
       <!--<img src="img/bonus-1.jpg" alt="Bônus 1">-->
@@ -888,7 +913,7 @@
     </div>
     <div class="bonus-footer">
       <h3>Aula extra:</h3>
-      <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+      <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
     </div>
   </div>
 </section>
@@ -906,14 +931,14 @@
 ══════════════════════════════════════ -->
 <section id="content-cards">
   <div class="content-cards-grid">
-    <div class="cc-card">
+    <div class="cc-card" data-anim="up">
       <img src="img/luciana-blazer-bege2.png" alt="Aulas Práticas em Modelos Reais" style="width:100%;aspect-ratio:2/3;object-fit:cover;object-position:top;display:block;">
       <div class="cc-body">
         <h3>Aulas Práticas em Modelos Reais</h3>
         <p>Nada de treinos superficiais! Aqui, você vai aprender escovação na prática, trabalhando em cabelos reais com diferentes texturas e desafios. É a preparação perfeita para atender qualquer cliente.</p>
       </div>
     </div>
-    <div class="cc-card">
+    <div class="cc-card" data-anim="up">
       <img src="img/luciana-sorrindo2.png" alt="Conteúdo Explicado de Forma Clara e Detalhada" style="width:100%;aspect-ratio:2/3;object-fit:cover;object-position:top;display:block;">
       <div class="cc-body">
         <h3>Conteúdo Explicado de Forma Clara e Detalhada</h3>
@@ -952,16 +977,16 @@
 ══════════════════════════════════════ -->
 <section id="bio">
   <div class="bio-grid">
-    <div class="bio-photo">
+    <div class="bio-photo" data-anim="left">
       <img src="img/biografia.jpg" alt="Luciana Monteiro" style="width:100%;aspect-ratio:2/3;object-fit:cover;object-position:top;display:block;">
     </div>
-    <div class="bio-content">
+    <div class="bio-content" data-anim="right">
       <h2 class="bio-name">LUCIANA MONTEIRO</h2>
       <p class="bio-text">Olá, sou Luciana Monteiro, cabeleireira e especialista em escovação desde os 15 anos no mercado da beleza. Durante minha carreira vi muitos profissionais lutar para oferecer escovações de qualidade e rapidez, sem danificar os cabelos das clientes. Por isso criei o Escova Lucrativa, um curso objetivo e completo que reúne tudo o que você precisa para se destacar. Seja você um iniciante ou um profissional buscando aperfeiçoamento, estou aqui para te guiar nessa jornada rumo ao sucesso.</p>
       <div class="bio-obj">
         <h3>MEU OBJETIVO</h3>
         <p class="bio-text">Nesse curso, você vai aprender tudo que eu gostaria que tivessem me ensinado lá no começo: técnica de verdade, escova que dura e uma postura que te faz ser reconhecida como profissional de respeito.</p>
-        <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn" style="margin-top:24px;display:inline-block;">COMPRAR</a>
+        <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn" style="margin-top:24px;display:inline-block;">COMPRAR</a>
       </div>
     </div>
   </div>
@@ -985,7 +1010,7 @@
       </ul>
     </div>
 
-    <div class="price-card">
+    <div class="price-card" data-anim="scale">
       <div class="price-logo">
         <!--
           Logo PNG oficial do curso:
@@ -1001,7 +1026,7 @@
         <span class="price-val">R$24,75</span>
       </div>
       <p class="price-avista">ou R$ 297,00 à vista</p>
-      <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn btn-full">COMPRAR AGORA</a>
+      <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn btn-full">COMPRAR AGORA</a>
     </div>
   </div>
 </section>
@@ -1140,7 +1165,7 @@
      STICKY CTA
 ══════════════════════════════════════ -->
 <div id="sticky">
-  <a href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
+  <a data-anim="btn" href="https://pay.kiwify.com.br/P7M4vcf" target="_blank" class="btn">QUERO ESCOVAR COM LUCRATIVIDADE AGORA!</a>
 </div>
 
 
@@ -1211,6 +1236,25 @@
   }
   fixMobile();
   window.addEventListener('resize', fixMobile);
+
+  /* ── SCROLL ANIMATIONS ── */
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('[data-anim]').forEach(function(el, i) {
+    if (!el.hasAttribute('data-delay')) {
+      var siblings = el.parentNode ? Array.from(el.parentNode.children).filter(function(c){ return c.hasAttribute('data-anim'); }) : [];
+      var idx = siblings.indexOf(el);
+      if (idx > 0 && idx <= 6) el.setAttribute('data-delay', idx);
+    }
+    observer.observe(el);
+  });
 
   /* ── PAINEL DE AJUSTE DE FOTOS ── */
   var fotosAjuste = [
