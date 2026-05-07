@@ -1212,6 +1212,51 @@
   fixMobile();
   window.addEventListener('resize', fixMobile);
 
+  /* ── PAINEL DE AJUSTE DE FOTOS ── */
+  var fotosAjuste = [
+    { label: 'Blazer Preto (Módulos)',   sel: '.unlock-photo img' },
+    { label: 'Blazer Bege (Cards)',      sel: '.cc-card:nth-child(1) img' },
+    { label: 'Sorrindo (Cards)',         sel: '.cc-card:nth-child(2) img' },
+    { label: 'Biografia',               sel: '.bio-photo img' },
+    { label: 'Segurando Celular (FAQ)',  sel: '.faq-photo img' },
+  ];
+
+  var painelBtn = document.createElement('button');
+  painelBtn.textContent = '📐 Ajustar Fotos';
+  painelBtn.style.cssText = 'position:fixed;top:16px;left:16px;z-index:99999;background:#7c3aed;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;box-shadow:0 2px 12px rgba(124,58,237,.5);';
+  document.body.appendChild(painelBtn);
+
+  var painel = document.createElement('div');
+  painel.style.cssText = 'display:none;position:fixed;top:52px;left:16px;z-index:99998;background:#1a0a3c;border:1px solid #7c3aed;border-radius:12px;padding:16px;width:300px;max-height:80vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.7);font-family:sans-serif;';
+
+  fotosAjuste.forEach(function(f) {
+    var el = document.querySelector(f.sel);
+    if (!el) return;
+    var cur = el.style.objectPosition || 'center top';
+    var parts = cur.split(' ');
+    var cx = parseInt(parts[0]) || 50;
+    var cy = parseInt(parts[1]) || 0;
+
+    var block = document.createElement('div');
+    block.style.cssText = 'margin-bottom:16px;border-bottom:1px solid #2d1b69;padding-bottom:14px;';
+    block.innerHTML = '<div style="color:#c084fc;font-weight:700;font-size:12px;margin-bottom:8px;">'+f.label+'</div>'
+      +'<div style="color:#ddd6fe;font-size:11px;margin-bottom:4px;">Horizontal: <span id="vx_'+f.label.replace(/\W/g,'')+'">'+cx+'%</span></div>'
+      +'<input type="range" min="0" max="100" value="'+cx+'" style="width:100%;margin-bottom:8px;" oninput="this.nextElementSibling.querySelector(\'span\').textContent=this.value+\'%\';document.querySelector(\''+f.sel+'\').style.objectPosition=this.value+\'% \'+this.parentNode.querySelector(\'input:last-of-type\').value+\'%\'">'
+      +'<div style="color:#ddd6fe;font-size:11px;margin-bottom:4px;">Vertical: <span>'+cy+'%</span></div>'
+      +'<input type="range" min="0" max="100" value="'+cy+'" style="width:100%;" oninput="document.querySelector(\''+f.sel+'\').style.objectPosition=this.parentNode.querySelector(\'input:first-of-type\').value+\'% \'+this.value+\'%\';this.previousElementSibling.querySelector(\'span\').textContent=this.value+\'%\'">';
+    painel.appendChild(block);
+  });
+
+  var info = document.createElement('div');
+  info.style.cssText = 'color:#9ca3af;font-size:11px;text-align:center;margin-top:4px;';
+  info.textContent = 'Ajuste e me diga os valores finais';
+  painel.appendChild(info);
+  document.body.appendChild(painel);
+
+  painelBtn.addEventListener('click', function() {
+    painel.style.display = painel.style.display === 'none' ? 'block' : 'none';
+  });
+
 </script>
 
 <!-- WhatsApp Flutuante -->
