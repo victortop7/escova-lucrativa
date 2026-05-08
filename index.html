@@ -551,10 +551,14 @@
       #sticky .btn { min-width: unset; width: 100%; }
     }
     @media (max-width: 768px) {
-      .unlock-photo { display: none; }
-      .unlock-grid { grid-template-columns: 1fr !important; padding: 0 16px !important; }
-      .neon-card { padding: 32px 24px; min-height: unset; }
-      .neon-card h3 { font-size: 18px; }
+      .unlock-photo { display: block; }
+      .unlock-photo img { height: 260px !important; border-radius: 12px; object-position: top center; }
+      .unlock-grid { grid-template-columns: 1fr !important; padding: 0 16px !important; gap: 16px !important; }
+      .unlock-slider { overflow: hidden !important; width: 100% !important; }
+      .neon-card { padding: 28px 20px; min-height: unset; overflow: hidden; }
+      .neon-card h3 { font-size: 16px; word-break: break-word; }
+      .neon-card li { font-size: 13px; white-space: normal; word-break: break-word; }
+      .neon-card p { font-size: 13px; }
       .unlock-title { font-size: 22px !important; padding: 0 16px; }
 
       .hero-video-overlay {
@@ -1182,18 +1186,19 @@
 
   /* ── MOBILE LAYOUT FIX ── */
   function fixMobile() {
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 768) {
       var grid = document.querySelector('.unlock-grid');
-      if (grid) {
-        grid.style.cssText = 'display:grid;grid-template-columns:1fr;padding:0 20px;gap:24px;';
-      }
-      document.querySelectorAll('.unlock-photo img').forEach(function(img) {
-        img.style.height = '320px';
+      if (grid) grid.style.cssText = 'display:grid;grid-template-columns:1fr;padding:0 16px;gap:16px;max-width:100%;';
+      var slider = document.querySelector('.unlock-slider');
+      if (slider) slider.style.cssText = 'overflow:hidden;width:100%;max-width:100%;';
+      document.querySelectorAll('.unlock-slide').forEach(function(s) {
+        s.style.cssText = 'min-width:100%;max-width:100%;overflow:hidden;';
       });
       document.querySelectorAll('.neon-card').forEach(function(card) {
-        card.style.cssText = 'padding:24px 20px;border-radius:16px;';
+        card.style.cssText = 'padding:28px 20px;min-height:unset;overflow:hidden;word-break:break-word;';
       });
       document.documentElement.style.overflowX = 'hidden';
+      document.body.style.overflowX = 'hidden';
     }
   }
   fixMobile();
