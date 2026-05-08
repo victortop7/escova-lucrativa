@@ -552,7 +552,7 @@
     }
     @media (max-width: 768px) {
       .unlock-photo { display: block; }
-      .unlock-photo img { height: auto !important; aspect-ratio: 3/4 !important; object-position: center 20% !important; border-radius: 12px; width: 100%; }
+      .unlock-photo img { height: auto !important; aspect-ratio: 3/4 !important; object-position: center center !important; border-radius: 12px; width: 100%; }
       .unlock-grid { grid-template-columns: 1fr !important; padding: 0 16px !important; gap: 16px !important; max-width: 100vw !important; overflow: hidden !important; }
       .unlock-slider { overflow: hidden !important; width: 100% !important; max-width: 100% !important; }
       .unlock-track { width: 100% !important; }
@@ -1206,6 +1206,47 @@
   }
   fixMobile();
   window.addEventListener('resize', fixMobile);
+
+  /* ── PAINEL EDIÇÃO UNLOCK ── */
+  var unlockPhoto = document.querySelector('.unlock-photo img');
+  var unlockCards = document.querySelectorAll('.neon-card');
+
+  var editBtn = document.createElement('button');
+  editBtn.textContent = '⚙️ Editar Seção';
+  editBtn.style.cssText = 'position:fixed;bottom:140px;right:16px;z-index:99999;background:#1a0a3c;color:#c084fc;border:1px solid #7c3aed;padding:8px 14px;border-radius:8px;font-weight:700;font-size:12px;cursor:pointer;display:none;';
+  document.body.appendChild(editBtn);
+
+  var editPanel = document.createElement('div');
+  editPanel.style.cssText = 'display:none;position:fixed;bottom:180px;right:16px;z-index:99998;background:#0d0820;border:1px solid #7c3aed;border-radius:12px;padding:14px;width:240px;box-shadow:0 8px 32px rgba(0,0,0,.8);font-family:sans-serif;';
+  editPanel.innerHTML = ''
+    +'<div style="color:#c084fc;font-weight:700;font-size:12px;margin-bottom:10px;">⚙️ Editar Seção</div>'
+    +'<div style="color:#ddd6fe;font-size:11px;margin-bottom:3px;">Posição da foto (vertical)</div>'
+    +'<input type="range" min="0" max="100" value="20" style="width:100%;margin-bottom:10px;" id="ep_fotoV">'
+    +'<div style="color:#ddd6fe;font-size:11px;margin-bottom:3px;">Padding do card</div>'
+    +'<input type="range" min="12" max="48" value="28" style="width:100%;margin-bottom:10px;" id="ep_pad">'
+    +'<div style="color:#ddd6fe;font-size:11px;margin-bottom:3px;">Tamanho do texto</div>'
+    +'<input type="range" min="10" max="18" value="13" style="width:100%;margin-bottom:10px;" id="ep_txt">'
+    +'<div style="color:#9ca3af;font-size:10px;text-align:center;">Me diga os valores para salvar</div>';
+  document.body.appendChild(editPanel);
+
+  if (window.innerWidth <= 768) editBtn.style.display = 'block';
+
+  document.getElementById('ep_fotoV').addEventListener('input', function() {
+    if (unlockPhoto) unlockPhoto.style.objectPosition = 'center ' + this.value + '%';
+  });
+  document.getElementById('ep_pad').addEventListener('input', function() {
+    unlockCards.forEach(function(c) { c.style.padding = arguments[0].target.value + 'px 20px'; }.bind(null, {target: this}));
+  });
+  document.getElementById('ep_txt').addEventListener('input', function() {
+    var sz = this.value + 'px';
+    unlockCards.forEach(function(c) {
+      c.querySelectorAll('li, p').forEach(function(el) { el.style.fontSize = sz; });
+    });
+  });
+
+  editBtn.addEventListener('click', function() {
+    editPanel.style.display = editPanel.style.display === 'none' ? 'block' : 'none';
+  });
 
   /* ── SCROLL ANIMATIONS ── */
   var observer = new IntersectionObserver(function(entries) {
